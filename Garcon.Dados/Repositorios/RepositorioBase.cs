@@ -3,6 +3,7 @@ using System;
 using Garcom.Dados.Contexto;
 using System.Linq;
 using System.Data.Entity;
+using System.Collections.Generic;
 
 namespace Garcom.Dados.Repositorios
 {
@@ -21,12 +22,12 @@ namespace Garcom.Dados.Repositorios
         }
 
 
-        public System.Collections.Generic.IEnumerable<TEntity> RetornaTodos()
+        public IEnumerable<TEntity> RetornaTodos()
         {
             return db.Set<TEntity>().ToList();
         }
 
-        public System.Collections.Generic.IEnumerable<TEntity> RetornaTodosAsNoTracking()
+        public IEnumerable<TEntity> RetornaTodosAsNoTracking()
         {
             return db.Set<TEntity>().AsNoTracking();
         }
