@@ -32,12 +32,20 @@
   <ItemGroup>
     <Compile Include="Contexto\Context.cs" />
     <Compile Include="EntiConfig\UsuarioConfig.cs" />
+    <Compile Include="Migrations\201605052309510_Usuario.cs" />
+    <Compile Include="Migrations\201605052309510_Usuario.Designer.cs">
+      <DependentUpon>201605052309510_Usuario.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositorios\RepositorioBase.cs" />
     <Compile Include="Repositorios\RepositorioUsuario.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201605052309510_Usuario.resx">
+      <DependentUpon>201605052309510_Usuario.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Garcon.Dominio\Garcom.Dominio.csproj">
       <Project>{b3e89431-18cc-4948-9788-f86a30a42bcf}</Project>

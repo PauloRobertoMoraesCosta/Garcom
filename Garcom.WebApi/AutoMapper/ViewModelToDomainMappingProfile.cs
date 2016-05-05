@@ -1,22 +1,19 @@
 ﻿using AutoMapper;
 using Garcom.Dominio.Entidades;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+using Garcom.WebApi.ViewModels;
 
-namespace Garcom.Apresentacao.AutoMapper
+namespace Garcom.WebApi.AutoMapper
 {
     public class ViewModelToDomainMappingProfile : Profile
     {
         public override string ProfileName
         {
-            get { return "ViewModelToDomain"; }
+            get { return "DomainToViewModelMappings"; }
         }
 
         protected override void Configure()
         {
-            //Mapper.CreateMap<UsuarioViewModel, Usuario>();
+            Mapper.CreateMap<Usuario, UsuarioViewModel>();
         }
     }
 }
