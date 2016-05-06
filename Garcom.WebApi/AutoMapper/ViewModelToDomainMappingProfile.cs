@@ -12,7 +12,7 @@ namespace Garcom.Apresentacao.AutoMapper
     {
         public override string ProfileName
         {
-            get { return "DomainToViewModel"; }
+            get { return "DomainToViewModelMappingProfile"; }
         }
 
         protected override void Configure()
