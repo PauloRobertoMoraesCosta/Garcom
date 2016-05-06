@@ -1,6 +1,9 @@
 ﻿using Garcom.Aplicacao.Interfaces;
+using Garcom.Aplicacao.Verifications;
+using Garcom.Dados.Verifications;
 using Garcom.Dominio.Entidades;
 using Garcom.Dominio.Interfaces.Servicos;
+using System;
 
 namespace Garcom.Aplicacao
 {
@@ -13,5 +16,10 @@ namespace Garcom.Aplicacao
             _serviceUsuario = serviceUsuario;
         }
 
+
+        public Usuario logaUsuario(string login, string senha)
+        {
+            return _serviceUsuario.LogaUsuario(login, senha);
+        }
     }
 }

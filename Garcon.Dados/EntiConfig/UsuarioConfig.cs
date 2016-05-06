@@ -16,9 +16,7 @@ namespace Garcom.Dados.EntiConfig
             Property(u => u.Nome).IsRequired().HasMaxLength(150);
             Property(u => u.DataCadastro).HasColumnName("Data_Cadastro");
             Property(u => u.Ativo).HasMaxLength(5);
-            
-            this.Ignore(u => u.AtivoBool);
-            
+            Property(u => u.Super).HasMaxLength(5);            
             
         }
     }

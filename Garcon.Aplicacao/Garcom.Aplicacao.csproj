@@ -45,8 +45,13 @@
     <Compile Include="Interfaces\IAppServiceBase.cs" />
     <Compile Include="Interfaces\IAppServiceUsuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Verifications\AplicacaoException.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Garcon.Dados\Garcom.Dados.csproj">
+      <Project>{94eb1934-86d1-4641-9f33-dbd9a0d09e54}</Project>
+      <Name>Garcom.Dados</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Garcon.Dominio\Garcom.Dominio.csproj">
       <Project>{b3e89431-18cc-4948-9788-f86a30a42bcf}</Project>
       <Name>Garcom.Dominio</Name>

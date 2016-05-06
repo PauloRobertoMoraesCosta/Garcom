@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-//using Garcom.Apresentacao.ViewModels;
+using Garcom.WebApi.ViewModels;
 using Garcom.Dominio.Entidades;
 using System;
 using System.Collections.Generic;
@@ -12,12 +12,12 @@ namespace Garcom.Apresentacao.AutoMapper
     {
         public override string ProfileName
         {
-            get {return "DomainToViewModel";}
+            get {return "ViewModelToDomain";}
         }
 
         protected override void Configure()
         {
-            //Mapper.CreateMap<Usuario, UsuarioViewModel>();
+            Mapper.CreateMap<UsuarioViewModel, Usuario>();
         }
     }
 }

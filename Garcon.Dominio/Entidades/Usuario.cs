@@ -14,9 +14,9 @@ namespace Garcom.Dominio.Entidades
         private string senha { get; set; }
         private string nome { get; set; }
         private DateTime dataCadastro { get; set; }
-        public string Ativo { get; set; }
-
-
+        private bool super { get; set; }
+        private bool ativo { get; set; }
+        
         public int Id
         {
             get { return id; }
@@ -43,11 +43,17 @@ namespace Garcom.Dominio.Entidades
             get { return dataCadastro; }
             set { dataCadastro = value; }
         }
-        public Boolean AtivoBool
+        public string Super 
         {
-            get { return Ativo == "true"; }
-            set { Ativo = value ? "true" : "false"; }
+            get { return super.ToString(); }
+            set { super = Convert.ToBoolean(value); }
         }
+        public string Ativo 
+        {
+            get { return ativo.ToString(); }
+            set { ativo = Convert.ToBoolean(value); } 
+        }
+        
         #endregion
 
     }

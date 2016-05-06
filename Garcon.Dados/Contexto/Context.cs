@@ -29,8 +29,6 @@ namespace Garcom.Dados.Contexto
             modelBuilder.Properties<string>().Configure(p => p.HasColumnType("varchar"));
             modelBuilder.Properties<string>().Configure(p => p.HasMaxLength(100));
 
-            //modelBuilder.Entity<Usuario>().Ignore(p => p.AtivoBool);
-
             modelBuilder.Configurations.Add(new UsuarioConfig());
         }
 

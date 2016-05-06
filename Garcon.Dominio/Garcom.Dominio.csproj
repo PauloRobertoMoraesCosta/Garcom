@@ -38,6 +38,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Servicos\ServicoBase.cs" />
     <Compile Include="Servicos\ServicoUsuario.cs" />
+    <Compile Include="verifications\DominioException.cs" />
     <Compile Include="verifications\Verificacoes.cs" />
   </ItemGroup>
   <ItemGroup>

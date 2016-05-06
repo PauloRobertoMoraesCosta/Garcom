@@ -1,4 +1,5 @@
-﻿using Garcom.Dominio.Entidades;
+﻿using Garcom.Dados.Verifications;
+using Garcom.Dominio.Entidades;
 using Garcom.Dominio.Interfaces.Repositorios;
 using Garcom.Dominio.verifications;
 using System;
@@ -14,7 +15,7 @@ namespace Garcom.Dados.Repositorios
             {
                 if (db.Usuarios.First(u => u.Login.Equals(login)) == null)
                 {
-                    throw new Exception("Usuario não cadastrado");
+                    throw new DadosException("Usuario não cadastrado");
                 }
                 else
                 {
@@ -25,14 +26,13 @@ namespace Garcom.Dados.Repositorios
                     }
                     else
                     {
-                        throw new Exception("Senha Errada");
+                        throw new DadosException("Senha Errada");
                     }
                 }
             }
             catch (Exception ex)
             {
-
-                throw new Exception("Problema ao fazer login! " + ex.Message);
+                throw new Exception("Problema inesperado ao fazer login no banco! " + ex.Message);
             }
         }
     }

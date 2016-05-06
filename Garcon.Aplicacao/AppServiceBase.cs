@@ -1,4 +1,5 @@
 ﻿using Garcom.Aplicacao.Interfaces;
+using Garcom.Dados.Verifications;
 using Garcom.Dominio.Interfaces.Servicos;
 using System;
 using System.Collections.Generic;
@@ -16,7 +17,7 @@ namespace Garcom.Aplicacao
 
         public void Adiciona(TEntity objeto)
         {
-            _serviceBase.Adiciona(objeto);
+            _serviceBase.Adiciona(objeto);   
         }
 
         public TEntity RetornaPorId(int Id)

@@ -1,7 +1,9 @@
 ﻿using Garcom.Aplicacao.Interfaces;
+using Garcom.Dados.Verifications;
 using Garcom.Dominio.Entidades;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -21,7 +23,15 @@ namespace Garcom.WebApi.Controllers
         // GET api/usuario
         public IEnumerable<Usuario> Get()
         {
-            return _serviceUsuario.RetornaTodosAsNoTracking();
+            try
+            {
+                return _serviceUsuario.RetornaTodos(); //logaUsuario(login, senha);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            
         }
 
         // GET api/usuario/5

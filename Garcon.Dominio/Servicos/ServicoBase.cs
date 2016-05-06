@@ -1,6 +1,7 @@
 ﻿using Garcom.Dominio.Interfaces.Repositorios;
 using Garcom.Dominio.Interfaces.Servicos;
 using System;
+using System.Collections.Generic;
 
 namespace Garcom.Dominio.Servicos
 {
@@ -24,12 +25,12 @@ namespace Garcom.Dominio.Servicos
             return _repositorio.RetornaPorId(Id);
         }
 
-        public System.Collections.Generic.IEnumerable<TEntity> RetornaTodos()
+        public IEnumerable<TEntity> RetornaTodos()
         {
             return _repositorio.RetornaTodos();
         }
 
-        public System.Collections.Generic.IEnumerable<TEntity> RetornaTodosAsNoTracking()
+        public IEnumerable<TEntity> RetornaTodosAsNoTracking()
         {
             return _repositorio.RetornaTodosAsNoTracking();
         }
