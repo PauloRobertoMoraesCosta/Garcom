@@ -1,3 +1,9 @@
+using Garcom.Aplicacao;
+using Garcom.Dados.Repositorios;
+using Garcom.Dominio.Interfaces.Repositorios;
+using Garcom.Dominio.Interfaces.Servicos;
+using Garcom.Dominio.Servicos;
+
 [assembly: WebActivatorEx.PreApplicationStartMethod(typeof(Garcom.WebApi.App_Start.NinjectWebCommon), "Start")]
 [assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof(Garcom.WebApi.App_Start.NinjectWebCommon), "Stop")]
 
@@ -11,11 +17,6 @@ namespace Garcom.WebApi.App_Start
     using Ninject;
     using Ninject.Web.Common;
     using Garcom.Aplicacao.Interfaces;
-    using Garcom.Aplicacao;
-    using Garcom.Dominio.Interfaces.Servicos;
-    using Garcom.Dominio.Servicos;
-    using Garcom.Dominio.Interfaces.Repositorios;
-    using Garcom.Dados.Repositorios;
 
     public static class NinjectWebCommon 
     {

@@ -1,12 +1,8 @@
 ﻿using AutoMapper;
-using Garcom.WebApi.ViewModels;
 using Garcom.Dominio.Entidades;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+using Garcom.WebApi.ViewModels;
 
-namespace Garcom.Apresentacao.AutoMapper
+namespace Garcom.WebApi.AutoMapper
 {
     public class DomainToViewModelMappingProfile : Profile
     {
