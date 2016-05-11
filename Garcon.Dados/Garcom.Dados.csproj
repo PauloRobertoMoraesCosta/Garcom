@@ -38,7 +38,6 @@
     <Compile Include="Repositorios\RepositorioUsuario.cs" />
     <Compile Include="Verifications\DadosException.cs" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\Garcon.Dominio\Garcom.Dominio.csproj">
       <Project>{b3e89431-18cc-4948-9788-f86a30a42bcf}</Project>

@@ -8,7 +8,7 @@ namespace Garcom.WebApi.AutoMapper
     {
         public override string ProfileName
         {
-            get {return "ViewModelToDomain";}
+            get { return "ViewModelToDomain"; }
         }
 
         protected override void Configure()
