@@ -1,4 +1,5 @@
 using Garcom.Aplicacao;
+using Garcom.Aplicacao.Interfaces;
 using Garcom.Dados.Repositorios;
 using Garcom.Dominio.Interfaces.Repositorios;
 using Garcom.Dominio.Interfaces.Servicos;
@@ -16,7 +17,6 @@ namespace Garcom.WebApi.App_Start
 
     using Ninject;
     using Ninject.Web.Common;
-    using Garcom.Aplicacao.Interfaces;
 
     public static class NinjectWebCommon 
     {
