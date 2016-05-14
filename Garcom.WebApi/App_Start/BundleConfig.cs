@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Optimization;
 
-namespace Garcom.WebApi
+namespace Garcom.WebAPi
 {
     public class BundleConfig
     {

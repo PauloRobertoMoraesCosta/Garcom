@@ -7,9 +7,9 @@ using System.Linq;
 using System.Net.Http.Headers;
 using System.Web.Http;
 using System.Web.Http.Description;
-using Garcom.WebApi.Areas.HelpPage.Models;
+using Garcom.WebAPi.Areas.HelpPage.Models;
 
-namespace Garcom.WebApi.Areas.HelpPage
+namespace Garcom.WebAPi.Areas.HelpPage
 {
     public static class HelpPageConfigurationExtensions
     {

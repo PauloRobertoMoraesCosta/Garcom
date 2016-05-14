@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Garcom.Aplicacao.Interfaces
+namespace Garcom.WebApi.InterfacesApp
 {
     public interface IAppServiceBase<TEntity> where TEntity : class
     {

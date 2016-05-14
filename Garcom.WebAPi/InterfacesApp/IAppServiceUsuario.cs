@@ -1,6 +1,6 @@
 ﻿using Garcom.Dominio.Entidades;
 
-namespace Garcom.Aplicacao.Interfaces
+namespace Garcom.WebApi.InterfacesApp
 {
     public interface IAppServiceUsuario : IAppServiceBase<Usuario>
     {

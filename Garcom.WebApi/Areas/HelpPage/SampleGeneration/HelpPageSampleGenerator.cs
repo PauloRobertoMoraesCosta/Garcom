@@ -13,7 +13,7 @@ using System.Web.Http.Description;
 using System.Xml.Linq;
 using Newtonsoft.Json;
 
-namespace Garcom.WebApi.Areas.HelpPage
+namespace Garcom.WebAPi.Areas.HelpPage
 {
     /// <summary>
     /// This class will generate the samples for the help page.

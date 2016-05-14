@@ -1,7 +1,7 @@
 using System.Web.Http;
 using System.Web.Mvc;
 
-namespace Garcom.WebApi.Areas.HelpPage
+namespace Garcom.WebAPi.Areas.HelpPage
 {
     public class HelpPageAreaRegistration : AreaRegistration
     {

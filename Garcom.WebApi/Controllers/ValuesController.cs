@@ -5,7 +5,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 
-namespace Garcom.WebApi.Controllers
+namespace Garcom.WebAPi.Controllers
 {
     public class ValuesController : ApiController
     {

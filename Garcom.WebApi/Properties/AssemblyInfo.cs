@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Garcom.WebApi")]
+[assembly: AssemblyTitle("Garcom.WebAPi")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Garcom.WebApi")]
+[assembly: AssemblyProduct("Garcom.WebAPi")]
 [assembly: AssemblyCopyright("Copyright ©  2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("a0973bd5-c998-4214-935c-644e6e04dc18")]
+[assembly: Guid("1ee07668-cd19-4bae-8598-dfb46eed2f79")]
 
 // Version information for an assembly consists of the following four values:
 //

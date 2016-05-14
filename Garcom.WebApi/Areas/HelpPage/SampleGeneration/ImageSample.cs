@@ -1,6 +1,6 @@
 using System;
 
-namespace Garcom.WebApi.Areas.HelpPage
+namespace Garcom.WebAPi.Areas.HelpPage
 {
     /// <summary>
     /// This represents an image sample on the help page. There's a display template named ImageSample associated with this class.

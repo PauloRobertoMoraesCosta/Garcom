@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 
-namespace Garcom.WebApi.AutoMapper
+namespace Garcom.WebAPi.AutoMapper
 {
     public class AutoMapperConfig
     {

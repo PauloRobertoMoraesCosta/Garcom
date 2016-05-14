@@ -1,6 +1,6 @@
 using System;
 
-namespace Garcom.WebApi.Areas.HelpPage
+namespace Garcom.WebAPi.Areas.HelpPage
 {
     /// <summary>
     /// This represents a preformatted text sample on the help page. There's a display template named TextSample associated with this class.

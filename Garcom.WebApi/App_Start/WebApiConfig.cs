@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
 
-namespace Garcom.WebApi
+namespace Garcom.WebAPi
 {
     public static class WebApiConfig
     {

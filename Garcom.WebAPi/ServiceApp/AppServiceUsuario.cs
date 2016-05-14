@@ -1,11 +1,9 @@
-﻿using Garcom.Aplicacao.Interfaces;
-using Garcom.Aplicacao.Verifications;
-using Garcom.Dados.Verifications;
-using Garcom.Dominio.Entidades;
+﻿using Garcom.Dominio.Entidades;
 using Garcom.Dominio.Interfaces.Servicos;
-using System;
+using Garcom.WebApi.InterfacesApp;
+using Garcom.WebApi.ServiceApp;
 
-namespace Garcom.Aplicacao
+namespace Garcom.WebApi
 {
     public class AppServiceUsuario : AppServiceBase<Usuario>, IAppServiceUsuario
     {

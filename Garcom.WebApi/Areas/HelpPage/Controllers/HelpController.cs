@@ -1,9 +1,9 @@
 using System;
 using System.Web.Http;
 using System.Web.Mvc;
-using Garcom.WebApi.Areas.HelpPage.Models;
+using Garcom.WebAPi.Areas.HelpPage.Models;
 
-namespace Garcom.WebApi.Areas.HelpPage.Controllers
+namespace Garcom.WebAPi.Areas.HelpPage.Controllers
 {
     /// <summary>
     /// The controller that will handle requests for the help page.

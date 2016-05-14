@@ -1,10 +1,9 @@
-﻿using Garcom.Aplicacao.Interfaces;
-using Garcom.Dados.Verifications;
+﻿using Garcom.WebApi.InterfacesApp;
 using Garcom.Dominio.Interfaces.Servicos;
 using System;
 using System.Collections.Generic;
 
-namespace Garcom.Aplicacao
+namespace Garcom.WebApi.ServiceApp
 {
     public class AppServiceBase<TEntity> : IDisposable, IAppServiceBase<TEntity> where TEntity : class
     {

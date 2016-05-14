@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace Garcom.WebApi.AutoMapper
+namespace Garcom.WebAPi.AutoMapper
 {
     public class DomainToViewModelMappingProfile : Profile
     {

@@ -1,14 +1,15 @@
-using Garcom.Aplicacao;
-using Garcom.Aplicacao.Interfaces;
+using Garcom.WebApi;
+using Garcom.WebApi.InterfacesApp;
 using Garcom.Dados.Repositorios;
 using Garcom.Dominio.Interfaces.Repositorios;
 using Garcom.Dominio.Interfaces.Servicos;
 using Garcom.Dominio.Servicos;
+using Garcom.WebApi.ServiceApp;
 
-[assembly: WebActivatorEx.PreApplicationStartMethod(typeof(Garcom.WebApi.App_Start.NinjectWebCommon), "Start")]
-[assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof(Garcom.WebApi.App_Start.NinjectWebCommon), "Stop")]
+[assembly: WebActivatorEx.PreApplicationStartMethod(typeof(Garcom.WebAPi.App_Start.NinjectWebCommon), "Start")]
+[assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof(Garcom.WebAPi.App_Start.NinjectWebCommon), "Stop")]
 
-namespace Garcom.WebApi.App_Start
+namespace Garcom.WebAPi.App_Start
 {
     using System;
     using System.Web;

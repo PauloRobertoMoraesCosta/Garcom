@@ -1,20 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
-using System.Web.Http;
+﻿using System.Web.Http;
+using Garcom.WebApi.InterfacesApp;
+using Garcom.Dominio.Entidades;
 
-namespace Garcom.WebApi.Controllers
+namespace Garcom.WebAPi.Controllers
 {
     [RoutePrefix("Usuario")]
     public class UsuarioController : ApiController
     {
-        [Route("logar/{login}/{senha}")]
-        public void Get(string login, string senha)
+        private readonly IAppServiceUsuario _serviceUsuario;
+
+        public UsuarioController(IAppServiceUsuario serviceUsuario)
         {
-            
+            _serviceUsuario = serviceUsuario;
+        }
+
+        [HttpGet]
+        [Route("logar/{login}/{senha}")]
+        public Usuario Logar(string login, string senha)
+        {
+            return _serviceUsuario.logaUsuario(login, senha);
         }
     }
 }
