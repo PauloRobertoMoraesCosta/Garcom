@@ -14,7 +14,7 @@ namespace Garcom.Dados.Contexto
         public Context()
             : base("GarcomDB")
         {
-
+            
         }
 
         public DbSet<Usuario> Usuarios { get; set; }

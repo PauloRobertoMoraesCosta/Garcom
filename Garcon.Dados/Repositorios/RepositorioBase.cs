@@ -1,6 +1,5 @@
 ﻿using Garcom.Dominio.Interfaces.Repositorios;
 using System;
-using Garcom.Dados.Contexto;
 using System.Linq;
 using System.Data.Entity;
 using System.Collections.Generic;

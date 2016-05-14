@@ -13,20 +13,20 @@ namespace Garcom.Dados.Repositorios
         {
             string loginLimpo = VerificacoesBanco.LimpaCaracteresEspeciais(login);
             string senhaLimpa = VerificacoesBanco.LimpaCaracteresEspeciais(senha);
-            IEnumerable<Usuario> usuarioBanco;
-            Usuario usuarioLogado;
+            Usuario usuarioBanco;
+            
 
             try
             {
-                usuarioBanco = from u in db.Usuarios where u.Login.Equals(loginLimpo) select u;
-                if (!usuarioBanco.Any())
+                usuarioBanco = db.Usuarios.AsNoTracking().FirstOrDefault(u => u.Login.Equals(loginLimpo));
+                if (usuarioBanco == null)
                     throw new DadosException("Usuario não cadastrado!");
 
-                usuarioBanco = from u in db.Usuarios where u.Login.Equals(loginLimpo) && u.Senha.Equals(senhaLimpa) select u;
-                if (!usuarioBanco.Any())
+                usuarioBanco = db.Usuarios.AsNoTracking().FirstOrDefault(u => u.Login.Equals(loginLimpo) && u.Senha.Equals(senhaLimpa));
+                if (usuarioBanco == null)
                     throw new DadosException("Senha Inválida!");
-                usuarioLogado = (Usuario)usuarioBanco.ElementAt(0);
-                return usuarioLogado;
+                    
+                return usuarioBanco;
             }
             catch (DadosException ex)
             {
