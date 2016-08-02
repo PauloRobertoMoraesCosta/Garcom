@@ -1,0 +1,6 @@
+E:\OneDrive\Arquivos\Gracom\Codificacao\Garcom\Garcom.front\bin\Garcom.front.dll.config
+E:\OneDrive\Arquivos\Gracom\Codificacao\Garcom\Garcom.front\bin\Garcom.front.dll
+E:\OneDrive\Arquivos\Gracom\Codificacao\Garcom\Garcom.front\bin\Garcom.front.pdb
+E:\OneDrive\Arquivos\Gracom\Codificacao\Garcom\Garcom.front\obj\Debug\Garcom.front.csprojResolveAssemblyReference.cache
+E:\OneDrive\Arquivos\Gracom\Codificacao\Garcom\Garcom.front\obj\Debug\Garcom.front.dll
+E:\OneDrive\Arquivos\Gracom\Codificacao\Garcom\Garcom.front\obj\Debug\Garcom.front.pdb

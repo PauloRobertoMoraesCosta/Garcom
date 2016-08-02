@@ -1,0 +1,5 @@
+E:\OneDrive\Arquivos\Gracom\Codificacao\Garcon\Garcon.Dominio\bin\Debug\Garcon.Dominio.dll
+E:\OneDrive\Arquivos\Gracom\Codificacao\Garcon\Garcon.Dominio\bin\Debug\Garcon.Dominio.pdb
+E:\OneDrive\Arquivos\Gracom\Codificacao\Garcon\Garcon.Dominio\obj\Debug\Garcon.Dominio.csprojResolveAssemblyReference.cache
+E:\OneDrive\Arquivos\Gracom\Codificacao\Garcon\Garcon.Dominio\obj\Debug\Garcon.Dominio.dll
+E:\OneDrive\Arquivos\Gracom\Codificacao\Garcon\Garcon.Dominio\obj\Debug\Garcon.Dominio.pdb

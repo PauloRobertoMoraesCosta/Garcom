@@ -1,0 +1,13 @@
+E:\OneDrive\Arquivos\Gracom\Codificacao\Garcom\Garcon.Dados\bin\Release\Garcon.Dados.dll.config
+E:\OneDrive\Arquivos\Gracom\Codificacao\Garcom\Garcon.Dados\bin\Release\Garcon.Dados.dll
+E:\OneDrive\Arquivos\Gracom\Codificacao\Garcom\Garcon.Dados\bin\Release\Garcon.Dados.pdb
+E:\OneDrive\Arquivos\Gracom\Codificacao\Garcom\Garcon.Dados\bin\Release\EntityFramework.dll
+E:\OneDrive\Arquivos\Gracom\Codificacao\Garcom\Garcon.Dados\bin\Release\EntityFramework.SqlServer.dll
+E:\OneDrive\Arquivos\Gracom\Codificacao\Garcom\Garcon.Dados\bin\Release\Garcon.Dominio.dll
+E:\OneDrive\Arquivos\Gracom\Codificacao\Garcom\Garcon.Dados\bin\Release\Newtonsoft.Json.dll
+E:\OneDrive\Arquivos\Gracom\Codificacao\Garcom\Garcon.Dados\bin\Release\Garcon.Dominio.pdb
+E:\OneDrive\Arquivos\Gracom\Codificacao\Garcom\Garcon.Dados\bin\Release\EntityFramework.xml
+E:\OneDrive\Arquivos\Gracom\Codificacao\Garcom\Garcon.Dados\bin\Release\EntityFramework.SqlServer.xml
+E:\OneDrive\Arquivos\Gracom\Codificacao\Garcom\Garcon.Dados\obj\Release\Garcom.Dados.csprojResolveAssemblyReference.cache
+E:\OneDrive\Arquivos\Gracom\Codificacao\Garcom\Garcon.Dados\obj\Release\Garcon.Dados.dll
+E:\OneDrive\Arquivos\Gracom\Codificacao\Garcom\Garcon.Dados\obj\Release\Garcon.Dados.pdb
