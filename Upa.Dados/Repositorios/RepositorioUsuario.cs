@@ -43,7 +43,7 @@ namespace Upa.Dados.Repositorios
             try
             {
                 IEnumerable<Usuario> usuariosAtivos =
-                    (IEnumerable<Usuario>) db.Usuarios.AsNoTracking().Select(u => u.Ativo.Equals("True"));
+                    (IEnumerable<Usuario>) db.Usuarios.AsNoTracking().Where(u => u.Ativo.Equals("True"));
                 if (usuariosAtivos == null)
                     throw new DadosException("Nenhum Usuário ativo no sistema");
                 return usuariosAtivos;
