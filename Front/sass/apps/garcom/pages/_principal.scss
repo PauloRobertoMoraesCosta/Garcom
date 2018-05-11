@@ -1,0 +1,26 @@
+// -----------------------------------------------------------------------------
+// This file contains styles that are specific to the main container.
+// -----------------------------------------------------------------------------
+
+.principal{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    display: table;
+    padding-top: 56px;
+    background: #fafafa;
+
+    .conteudo{
+        display: table-cell;
+        vertical-align: top;
+        width: auto;
+        height: 100%;
+        box-sizing: border-box;
+    }
+}
+
+/*@media screen and (max-width: 900px){
+    .principal{
+        padding-top: 56px;
+    }
+}*/

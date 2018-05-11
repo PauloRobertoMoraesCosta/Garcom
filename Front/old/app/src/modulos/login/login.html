@@ -1,0 +1,30 @@
+<div class="login login-theme animated fadeIn">
+    <spinner ng-if="loading" white="true"></spinner>
+    <div class="login-area" ng-if="!loading">
+        <div>
+            <section class="animated slideInDown">
+                <div class="logo">
+                    <img src="src/img/logo_1.png" alt="Garçom" />
+                </div>
+                <form novalidate name="frm" ng-submit="ctrl.login()">
+                    <div>
+                        <div class="form-group m-0" ng-class="{'has-danger': frm.usuario.$invalid && frm.$submitted}">
+                            <i class="material-icons">face</i>
+                            <input name="usuario" autocomplete="off" maxlength="30" required placeholder="Usuário" ng-model="ctrl.usuario" class="form-control usuario" autofocus type="text"/>
+                        </div>
+                        <div class="form-group m-0" ng-class="{'has-danger': frm.senha.$invalid && frm.$submitted}">
+                            <i class="material-icons">vpn_key</i>
+                            <input name="senha" autocomplete="off" maxlength="10" required placeholder="Senha" ng-model="ctrl.senha" class="form-control senha" type="password"/>
+                        </div>
+
+                        <div class="form-group m-0">
+                            <checkbox small ng-model="ctrl.manterLogin" multiselect="false" ng-value="true">Lembrar minhas credenciais por {{ctrl.tempoManterLogin}} horas</checkbox>
+                        </div>
+
+                        <button id="logar" type="submit" class="btn btn-primary full-width mt-05">ENTRAR</button>
+                    </div>
+                </form>
+            </section>
+        </div>
+    </div>
+</div>

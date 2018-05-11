@@ -1,0 +1,83 @@
+<breadcrumb [model]="breadcrumb"></breadcrumb>
+<div class="card scroll" [ngStyle]="g.styleCardBody">
+    <div class="card-body p-0">
+        <spinner *ngIf="g.onRequest"></spinner>
+
+        <div class="col-xs-12 pt-1 pb-1 pl-sm-1 pr-sm-1 pl-xs-0 pr-xs-0" [ngStyle]="{'max-width': g.widthContent + 'px'}" *ngIf="!g.onRequest">
+            <h4 class="m-0 pb-1 pl-1 pr-1">{{usuario.id == 0 ? 'Cadastro' : 'Alteração'}} de Usuários</h4>
+
+            <div class="col-xs-12 p-0">
+                <form #frm="ngForm" novalidate (ngSubmit)="salvar()">
+                    <div>
+                        <!--Usuario-->
+                        <div class="col-xs-12 form-group" [ngClass]="{'has-danger': frmCtrls.login?.invalid && frm?.submitted, 'has-success': frmCtrls?.login && frmCtrls.login?.valid && frm?.submitted}"
+                            style="max-width: 200px">
+                            <label>Usuário*</label>
+                            <input class="form-control" type="text" name="login" maxlength="20" [(ngModel)]="usuario.login" [disabled]="usuario.id > 0" focus="usuario.id == 0" next-enter required/>
+                        </div>
+                        <!--Nome-->
+                        <div class="col-xs-12 form-group" [ngClass]="{'has-danger': frmCtrls.nome?.invalid && frm?.submitted, 'has-success': !frmCtrls.nome?.invalid && frm?.submitted}">
+                            <label>Nome*</label>
+                            <input class="form-control" type="text" name="nome" [maxlength]="100" [(ngModel)]="usuario.nome" focus="usuario.id > 0" next-enter required/>
+                        </div>
+                        <div class="col-xs-12 p-0">
+                            <!--Senha-->
+                            <div class="col-xs-12 col-sm-6 form-group" [ngClass]="{'has-danger': !validaSenha() && frm?.submitted, 'has-success': validaSenha() && frm?.submitted}">
+                                <label>{{(usuario.id > 0 ? 'Senha' : 'Senha*')}}</label>
+                                <input class="form-control" type="password" name="senha" maxlength="10" [(ngModel)]="usuario.senha" (ngModelChange)="validaSenha()" next-enter/>
+                                <div *ngIf="usuario.id == 0 || (usuario.senha && usuario.senha != '')" class="ng-active">
+                                    <span [ngClass]="{'danger': !validacaoSenha.maiusculo, 'success': validacaoSenha.maiusculo}">1 caracter maísculo</span>
+                                    <br/>
+                                    <span [ngClass]="{'danger': !validacaoSenha.numero, 'success': validacaoSenha.numero}">1 número</span>
+                                    <br/>
+                                    <span [ngClass]="{'danger': !validacaoSenha.seis, 'success': validacaoSenha.seis}">Mínimo 6 carateres</span>
+                                </div>
+                            </div>
+                            <!--Confirmação da senha-->
+                            <div class="col-xs-12 col-sm-6 form-group" [ngClass]="{'has-danger': !validaConfirmaSenha() && frm?.submitted, 'has-success': validaConfirmaSenha() && frm?.submitted}">
+                                <label>{{(usuario.id > 0 ? 'Confirmação de senha' : 'Confirmação de senha*')}}</label>
+                                <input class="form-control" type="password" name="confirmacaoSenha" maxlength="10" [(ngModel)]="usuario.confirmacaoSenha" (ngModelChange)="validaSenha()" next-enter/>
+                                <div *ngIf="usuario.id <= 0 || usuario.senha" class="ng-active">
+                                    <span [ngClass]="{'danger': !validaConfirmaSenha(), 'success': validaConfirmaSenha()}">Confirmação de senha</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 p-0">
+                            <!--Perfil-->
+                            <div class="col-xs-12 col-sm-6 form-group" [ngClass]="{'has-danger': frmCtrls.perfilId?.invalid && frm?.submitted, 'has-success': !frmCtrls.perfilId?.invalid && frm?.submitted}">
+                                <label>Perfil*</label>
+                                <select class="form-control" type="text" name="perfilId" [(ngModel)]="usuario.perfilId" next-enter required>
+                                    <option [value]="null">-- Selecionar --</option>
+                                    <option *ngFor="let p of perfis" [ngValue]="p.id">{{p.descricao}}</option>
+                                </select>
+                            </div>
+                            <!--Ativo-->
+                            <div class="col-xs-5 col-sm-3 pt-1 form-group" *ngIf="usuario.id > 0">
+                                <checkbox [model]="usuario.ativo" [left]="true" [center]="true" [checked-value]="true" [unchecked-value]="false" [multiselect]="false" [disabled]="loading">
+                                    Ativo
+                                </checkbox>
+                            </div>
+                            <!--Data de cadastro-->
+                            <div class="form-group pl-0" *ngIf="usuario.id > 0" [ngClass]="{'col-xs-12 col-sm-6': usuario.id == 0, 'col-xs-7 col-sm-3' : usuario.id > 0}">
+                                <div class="float-right">
+                                    <label>Data de cadastro</label>
+                                    <div>
+                                        <strong>{{usuario.dataCadastro | date:'dd/MM/yyyy'}}</strong>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 p-1 pb-0 text-xs-right">
+                            <button type="button" class="btn btn-none" routerLink="/principal/cadastros/usuarios/listar" [disabled]="loading" skip>
+                                Cancelar
+                            </button>
+                            <button class="btn btn-primary mr-05 pl-2 pr-2" type="submit" [disabled]="loading || (frm?.submitted && frm?.invalid)">
+                                {{loading ? 'Aguarde...' : (usuario.id > 0 ? 'Alterar' : 'Cadastrar')}}
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,19 @@
+* Após pedir o encerramento da mesa o sistema não poderá permitir fazer mais pedidos para a mesma, a não ser no caixa. (agora)
+
+* O sistema deverá permitir transferir o consumo de uma mesa para outra. (agora)
+
+* O sistema deve manter o horário do pedido. (agora)
+
+* Deverá permitir cobrar ou não os 10% do garçom. (Melhoria)
+
+* Deve ter forma de pagamento para o controle do caixa. (Melhorias)
+
+* O sistema deverá ter fila de espera de clientes. (Melhorias)
+
+* Deve controlar a responsabilidade da praça para garçons, até permitindo que a escolha seja na sorte. (Melhorias)
+
+* A cozinha deve ter impressão do pedido em impressora. (Melhoria)
+
+* O caixa deve ter acesso a todas as informações lançadas. (Melhoria)
+
+* O sistema deverá dividir o valor da conta (Colocar a opção para selecionar os itens e o sistema calcular o valor) (Melhoria)

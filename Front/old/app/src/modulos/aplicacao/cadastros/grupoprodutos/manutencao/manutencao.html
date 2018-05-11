@@ -1,0 +1,96 @@
+<breadcrumb ng-model="breadcrumb"></breadcrumb>
+<div class="card scroll" ng-init="ctrl.initManutencao()" ng-style="styleCardBody">
+     <div class="card-body">
+         <spinner ng-if="onRequest"></spinner>
+        <div ng-if="onRequest" class="circular-loader"><div></div></div>
+        <div class="col-xs-12 pt-1 pb-1 pl-sm-1 pr-sm-1 pl-xs-0 pr-xs-0" style="{{'max-width: ' + (widthContent - 100) + 'px'}}" ng-if="!onRequest">
+            <h4 class="m-0 pb-1 pl-1 pr-1">{{ctrl.grupoproduto.id == 0 ? 'Cadastro' : 'Alteração'}} de grupo de produtos</h4>
+            <div class="col-xs-12 p-0 pr-xs-0">
+                <form name="frm" novalidate ng-submit="ctrl.salvar()">
+                    <!--Nome-->
+                    <div class="col-xs-12 form-group" ng-class="{'has-danger': frm.descricao.$invalid && frm.$submitted, 'has-success': !frm.descricao.$invalid && frm.$submitted}">
+                        <label>Nome*</label>
+                        <input class="form-control" type="text" name="descricao" maxlength="100" ng-model="ctrl.grupoproduto.nome" focus next-enter required/>
+                        <div ng-messages="frm.descricao.$error" ng-if="frm.descricao.$invalid && frm.$submitted">
+                            <div ng-messages-include="error-messages"></div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 p-0">
+                        <!--Permite divisão-->
+                        <div class="col-xs-12 col-sm-8 pt-0 form-group">
+                            <checkbox center ng-model="ctrl.grupoproduto.permiteDividir" checked-value="true" unchecked-value="false" multiselect="false" name="permiteDividir" disabled="loading" left>
+                                Permite divisão de sabores
+                            </checkbox>
+                        </div>
+                        <!--Data de cadastro-->
+                        <div class="col-xs-12 col-sm-4 form-group" ng-class="!minMobile ? 'text-xs-right' : 'text-xs-left'" ng-show="ctrl.grupoproduto.id != 0">
+                            <label>Data de cadastro</label>
+                            <div><strong>{{ctrl.grupoproduto.dataCadastro|data}}</strong></div>
+                        </div>
+                    </div>
+                    <!--Tamanhos-->
+                    <div class="col-xs-12 p-0 pt-1">
+                        <div class="col-xs-12">
+                            <div class="expand-box" ng-class="{'expanded': ctrl.tamanhodExpandido}">
+                                <button type="button" ng-click="ctrl.tamanhodExpandido = !ctrl.tamanhodExpandido" ng-disabled="loading" skip>
+                                    <i class="material-icons" ng-bind="ctrl.tamanhodExpandido ? 'keyboard_arrow_up' : 'keyboard_arrow_down'"></i>
+                                    <span ng-bind="(ctrl.tamanhodExpandido ? 'Ocultar' : 'Visualizar') + ' tamanhos'"></span>
+                                    <i class="material-icons" ng-bind="ctrl.tamanhodExpandido ? 'keyboard_arrow_up' : 'keyboard_arrow_down'"></i>
+                                </button>
+                                <section class="pl-05">
+                                    <div class="d-table w-100 form-group" ng-repeat="t in ctrl.grupoproduto.tamanhos">
+                                        <!--Tamanho-->
+                                        <div class="d-table-cell">
+                                            <div class="d-table w-100">
+                                                <div class="d-table-cell va-middle" style="width: 60px">
+                                                    <div class="pb-05" ng-if="$index === 0">Ordem</div>
+                                                    <div class="text-xs-center primary pb-05" ng-bind="t.ordem | padLeft:'0':2"></div>
+                                                </div>
+                                                <div class="d-table-cell va-middle">
+                                                    <label ng-if="$index === 0">Tamanho</label>
+                                                    <select class="form-control" ng-model="t.id" ng-options="tam.id as tam.nome for tam in tamanhosProduto | removeIguais:ctrl.grupoproduto.tamanhos:'id':'id':t.id" ng-change="ctrl.checkTamanhos()" ng-disabled="loading" next-enter></select>
+                                                    <div class="helper danger" ng-if="$index < (ctrl.grupoproduto.tamanhos-1) && !t.id && frm.$submitted">
+                                                        Informe o tamanho.
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--Mover-->
+                                        <div class="d-table-cell va-middle pl-1" ng-class="{'pt-1': $index == 0}" style="width: 63px">
+                                            <button type="button" class="btn btn-none p-0 float-left" style="width: 50%; height: auto; border-radius: 50%;" ng-click="ctrl.moverTamanho($index, true)" ng-disabled="$index == 0 || $index == (ctrl.grupoproduto.tamanhos.length-1)" uib-tooltip="Mover para cima" tooltip-enable="!minMobile" skip>
+                                                <i class="material-icons primary md-24">arrow_upward</i>
+                                            </button>
+                                            <button type="button" class="btn btn-none p-0 float-left" style="width: 50%; height: auto; border-radius: 50%" ng-click="ctrl.moverTamanho($index, false)" ng-disabled="$index >= (ctrl.grupoproduto.tamanhos.length-2)" uib-tooltip="Mover para baixo" tooltip-enable="!minMobile" skip>
+                                                <i class="material-icons primary md-24">arrow_downward</i>
+                                            </button>
+                                        </div>
+                                        <!--Excluir-->
+                                        <div class="d-table-cell va-middle pl-05" ng-class="{'pt-1': !minMobile && $index == 0, 'pt-2': minMobile && $index == 0}" style="width: 23px">
+                                            <button type="button" class="btn btn-none p-0 float-left" style="width: 100%; height: auto; border-radius: 50%" ng-click="ctrl.excluirTamanho($index, t.nome)" ng-disabled="$index >= (ctrl.grupoproduto.tamanhos.length-1)" uib-tooltip="{{msgService.gerais.excluir()}}" tooltip-enable="!minMobile" skip>
+                                                <i class="material-icons md-24 danger">delete_forever</i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </section>
+                            </div>
+                            <!--<div ng-if="frm.$submitted && ctrl.grupoProdutoSelecionado && ctrl.produto.produtoIngredientes && ctrl.produto.produtoIngredientes.length > 0 && !ctrl.possuiValoresIngredientesDefinidos()" class="helper danger">Defina ao menos um</div>-->
+                        </div>
+                    </div>
+                    <div class="col-xs-12 p-1 pb-0 text-xs-right">
+                        <button type="button" class="btn btn-none" ui-sref="principal.cadastros.grupoprodutos.listar" ng-disabled="loading" skip>
+                            Cancelar
+                        </button>
+                        <button class="btn btn-primary mr-05 pl-2 pr-2" type="submit" ng-disabled="loading || (frm.$submitted && frm.$invalid)">
+                            {{loading ? 'Aguarde...' : (ctrl.grupoproduto.id > 0 ? 'Alterar' : 'Cadastrar')}}
+                        </button>
+                    </div>
+                </form>
+                <div class="col-xs-12">
+                    <small ng-if="ctrl.grupoproduto.id == 0">
+                        <i>Utilizado para agrupar os produtos em seu cardápio. Exemplos: Bebidas, Pizzas, Porções...</i>
+                    </small>
+                </div>
+            </div>
+        </div>
+     </div>
+</div>

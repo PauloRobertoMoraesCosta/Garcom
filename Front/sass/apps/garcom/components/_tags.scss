@@ -1,0 +1,22 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the tags.
+// -----------------------------------------------------------------------------
+
+.tag {
+    &.tag {
+        &-menu {
+            position: absolute;
+            right: -8px;
+            top: 13px;
+            
+            @include media-breakpoint-down(xs){ right: 120px; }
+        }
+        
+        &-lancamento {
+            margin-left: -3px;
+            position: absolute;
+            top: 10px;
+        }
+    }
+}
+

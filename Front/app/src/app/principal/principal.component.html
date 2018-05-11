@@ -1,0 +1,71 @@
+<div class="principal">
+    <!--MENU-->
+    <div class="menu-bar">
+        <!--MENU TOP-->
+        <div class="topbar animated slideInDown">
+            <div>
+                <div></div>
+            </div>
+            <!--ITENS-->
+            <section>
+                <div class="btn-bullet float-left" *ngIf="g.mobile" (click)="menu.toggleMenu()">
+                    <i class="material-icons" *ngIf="!menu.showMenu">menu</i>
+                    <i class="material-icons" *ngIf="menu.showMenu">close</i>
+                </div>
+
+                <div class="btn-bullet float-right" (click)="logout()" title="Sair"><i class="material-icons">exit_to_app</i></div>
+                <div class="btn-bullet float-right" (click)="null" title="Configurações"><i class="material-icons">settings</i></div>
+            </section>
+        </div>
+
+        <!--MENU BAR-->
+        <div class="menu animated" [ngClass]="{'slideInLeft': (menu.showMenu && g.mobile) || !g.mobile, 'slideOutLeft': !menu.showMenu && g.mobile}">
+            <section>
+                <ul>
+                    <li *ngFor="let item of menu.itens">
+                        <!--ITEM-->
+                        <div *ngIf="item.inativo" class="disabled">
+                            <i *ngIf="item.iconeClass" class="material-icons">{{item.iconeClass}}</i>
+                            <img *ngIf="item.iconeSvg" width="{{item.iconeSvg.width}}" [src]="item.iconeSvg.disabled"/>
+                            <!--<object *ngIf="item.iconeSvg" ng-data="{{item.iconeSvg}}" type="image/svg+xml" width="24"></object>-->
+                            &nbsp;{{item.nome}}
+                        </div>
+                        <div *ngIf="!item.inativo && (item.submenu == null || item.submenu.itens.length == 0)" (click)="menu.goState(item)" [ngClass]="{'selected': menu.router.url == item.url}">
+                            <i *ngIf="item.iconeClass" class="material-icons">{{item.iconeClass}}</i>
+                            <img *ngIf="item.iconeSvg" width="{{item.iconeSvg.width}}" [src]="item.iconeSvg.enabled"/>
+                            &nbsp;{{item.nome}}
+                        </div>
+                        <div *ngIf="!item.inativo && item.submenu != null && item.submenu.itens.length > 0" (click)="menu.toggleSubmenu(item)" [ngClass]="{'selected': item.submenu.show}">
+                            <i *ngIf="item.iconeClass" class="material-icons">{{item.iconeClass}}</i>
+                            <img *ngIf="item.iconeSvg" width="{{item.iconeSvg.width}}" [src]="item.iconeSvg.enabled"/>
+                            &nbsp;{{item.nome}}
+                        </div>
+
+                        <!--SUBMENU-->
+                        <!--<ul *ngIf="!item.inativo && item.submenu != null && item.submenu.itens.length > 0" ng-show="item.submenu.show">-->
+                        <ul *ngIf="!item.inativo && item.submenu != null && item.submenu.itens.length > 0" [ngStyle]="{'height': (item.submenu.show ? (31*item.submenu.itens.length) : 0) + 'px'}">
+                            <li *ngFor="let subItem of item.submenu.itens" [ngStyle]="subItem.inativo && 'opacity: .5; cursor: default'">
+                                <!--ITEM-->
+                                <div *ngIf="subItem.inativo" class="disabled">
+                                    <i class="material-icons" *ngIf="subItem.iconeClass">{{subItem.iconeClass}} </i>{{subItem.nome}}
+                                </div>
+                                <div *ngIf="!subItem.inativo" (click)="menu.goState(subItem)" [ngClass]="{'selected': menu.router.url == subItem.url}">
+                                    <i class="material-icons" *ngIf="subItem.iconeClass">{{subItem.iconeClass}}</i>{{subItem.nome}}
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </section>
+        </div>
+        <div class="backexpand-menu animated" *ngIf="g.mobile && menu.showMenu" (click)="menu.toggleMenu()" [ngClass]="{'fadeIn': menu.showMenu && g.mobile, 'fadeOut': !menu.showMenu && g.mobile}"></div>
+    </div>
+
+    <!--CONTEUDO-->
+    <div class="conteudo animated fadeIn">
+        <spinner *ngIf="g.routeLoading" [padding]="!g.mobile ? '100px 0 0 220px' : null"></spinner>
+        <div *ngIf="!g.routeLoading">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>

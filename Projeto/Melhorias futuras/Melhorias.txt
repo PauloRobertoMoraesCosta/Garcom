@@ -1,0 +1,39 @@
+* O sistema não deverá permitir o mesmo usuário loga em dois dispositivos ao mesmo tempo.
+
+* Deve ter forma de pagamento para o controle do caixa.
+
+* O sistema deverá permitir que alguns produtos não incidão 10%. Permitir alterar o percentual da gorjeta
+
+* Deverá permitir cobrar ou não os 10% do garçom (Caixa).
+
+* O sistema deverá ter fila de espera de clientes.
+
+* Deve controlar a responsabilidade da praça para garçons, até permitindo que a escolha seja na sorte.
+
+* A cozinha deve ter impressão do pedido em impressora.
+
+* O caixa deve ter acesso a todas as informações lançadas.
+
+* O sistema deverá dividir o valor da conta (Colocar a opção para selecionar os itens e o sistema calcular o valor)
+
+* Ordenar os pedidos na cozinha.
+
+* Não permitir transferir itens entre mesas.
+
+* Aparecer o somatório da conta no app.
+
+* Fazer reserva de mesa.
+
+* O ícone da mesa mudar de cor quando estiver muito tempo sem pedir. (Atenção)
+
+* separar o cartão do pagamento.
+
+* ter a opção de venda balcão (Caixa)
+
+* ter a opção de separar mesas por centro de custo.
+
+* lançar os pedidos de tele entrega.
+
+* O sistema deverá permitir parametrizar quem poderá excluir itens pedidos.
+
+* Alterar para que o grupo de produtos deve possibilitar mais de um tamanho.

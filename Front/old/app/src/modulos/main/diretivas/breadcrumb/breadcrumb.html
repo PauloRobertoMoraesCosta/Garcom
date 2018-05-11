@@ -1,0 +1,8 @@
+<div class="card" style="border-right: none; border-bottom: none;">
+    <div class="card-body">
+        <div class="breadcrumb">
+            <a ng-repeat="i in ngModel" ng-if="i.state" ui-sref="{{i.state}}" class="breadcrumb-item">{{i.nome}}</a>
+            <div ng-repeat="i in ngModel" ng-if="!i.state" class="breadcrumb-item">{{i.nome}}</div>
+        </div>
+    </div>
+</div>

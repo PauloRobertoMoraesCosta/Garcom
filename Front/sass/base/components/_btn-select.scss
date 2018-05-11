@@ -1,0 +1,48 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the btn-menu.
+// -----------------------------------------------------------------------------
+
+btn-select{
+    position: relative;
+}
+
+.btn-select {
+    display: none;
+    position: absolute;
+    top: -7px;
+    left: -8px;
+
+    &.show{
+        display: table;
+    }
+
+    > ul{
+        margin: 0;
+        padding: 0;
+        background: #FFF;
+        list-style: none;
+        box-shadow: 2px 2px 7px rgba(0,0,0,.2);
+        border-radius: 4px;
+        min-width: 180px;
+
+        > li{
+            color: $brand-secondary;
+            cursor: pointer;
+            box-sizing: border-box;
+            padding: 7px 15px;
+
+            &:hover{
+                background: #FAFAFA;
+                color: $brand-primary;
+            }
+
+            &:first-child{
+                border-radius: 4px 0px 4px 0px;
+            }
+
+            &:last-child{
+                border-radius: 0px 4px 0px 4px;
+            }
+        }
+    }
+}

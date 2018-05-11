@@ -1,0 +1,69 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the flaticons.
+// -----------------------------------------------------------------------------
+
+[class^="flaticon-xs"], [class*=" flaticon-xs"],
+[class^="flaticon-xs"], [class*=" flaticon-xs"],
+[class^="flaticon-xs"]:before, [class*=" flaticon-xs"]:before,
+[class^="flaticon-xs"]:after, [class*=" flaticon-xs"]:after {
+    font-size: $icon-size-xs;
+}
+
+[class^="flaticon-sm"], [class*=" flaticon-sm"],
+[class^="flaticon-sm"], [class*=" flaticon-sm"],
+[class^="flaticon-sm"]:before, [class*=" flaticon-sm"]:before,
+[class^="flaticon-sm"]:after, [class*=" flaticon-sm"]:after
+{
+    font-size: $icon-size-sm;
+}
+
+[class^="flaticon-md"], [class*=" flaticon-md"],
+[class^="flaticon-md"], [class*=" flaticon-md"],
+[class^="flaticon-md"]:before, [class*=" flaticon-md"]:before,
+[class^="flaticon-md"]:after, [class*=" flaticon-md"]:after
+{
+    font-size: $icon-size-md;
+}
+
+[class^="flaticon-lg"], [class*=" flaticon-lg"],
+[class^="flaticon-lg"], [class*=" flaticon-lg"],
+[class^="flaticon-lg"]:before, [class*=" flaticon-lg"]:before,
+[class^="flaticon-lg"]:after, [class*=" flaticon-lg"]:after
+{
+    font-size: $icon-size-lg;
+}
+
+.flaticon {
+    &-rotate {
+        &-minus45 {
+            &:before {
+                font-size: 32px;
+                -ms-transform: rotate(-45deg);
+                -webkit-transform: rotate(-45deg);
+                transform: rotate(-45deg);
+            }
+        }
+    }
+}
+
+.fi-file-types {
+    display: inline-block;
+    height: $icon-size-xs + px;
+    width: $icon-size-xs + px;
+
+    &:before {
+        content: ''
+    }
+
+    &.flaticon-xs { height: $icon-size-xs; width: $icon-size-xs; }
+    &.flaticon-sm { height: $icon-size-sm; width: $icon-size-sm; }
+    &.flaticon-md { height: $icon-size-md; width: $icon-size-md; }
+    &.flaticon-lg { height: $icon-size-xs; width: $icon-size-lg; }
+
+    &.flaticon-txt { background-image: url('assets/fonts/file-types/txt.svg'); }
+    &.flaticon-pdf { background-image: url('assets/fonts/file-types/pdf.svg'); }
+    &.flaticon-jpg { background-image: url('assets/fonts/file-types/jpg.svg'); }
+    &.flaticon-png { background-image: url('assets/fonts/file-types/png.svg'); }
+    &.flaticon-mp4 { background-image: url('assets/fonts/file-types/mp4.svg'); }
+    &.flaticon-file { background-image: url('assets/fonts/file-types/file.svg'); }
+}

@@ -1,0 +1,87 @@
+
+*Cadastro de usuários:
+
+Erros na inclusão
+-Ao clicar em cadastrar novo, o texto que aparece é diferente da especificação (Front):
+	"Ao clicar no botão "Cadastrar novo" o sistema deverá exibir a tela "Usuários - Cadastrar""
+-Ao clicar em cadastro novo, o sistema não exibe a data de cadastro conforme a especificação (Front).
+	"O sistema deverá carregar a data de cadastro com a data atual e não permitir edição."
+
+Erros na alteração:
+-Ao clicar na alteração do usuário, o texto que aparece é diferente da especificação (Front):
+	"Ao clicar em algum usuário o sistema deverá exibir a tela "Usuários - Alterar""
+
+
+
+
+*Cadastro de ingredientes:
+
+Erros na inclusão
+-Ao clicar em cadastrar novo, o texto que aparece é diferente da especificação (Front):
+	"Ao clicar no botão "Cadastrar novo" o sistema deverá exibir a tela "Ingredientes - Cadastrar""
+
+
+Erros na alteração:
+-Ao clicar para alterar um ingrediente o texto que aparece é diferente da especificação (Front):
+	"Ao clicar em algum ingrediente o sistema deverá exibir a tela "Ingredientes - Alterar""
+(PRECISA CORRIGIR) - Ao alterar um igrediente sem modificar o nome ocorre o erro (Back):
+	Ingrediente já cadastrado. 
+
+Erros na exclusão:
+(PRECISA CORRIGIR) - Ao excluir um ingrediente ocorre erro de (Back):
+	Table 'dbgarcom.produto_ingrediente_tamanho_produto' doesn't exist 
+
+
+
+
+*Grupo de Produtos
+
+Erros na inclusão
+-Ao clicar em cadastrar novo, o texto que aparece é diferente da especificação (Front):
+	"Ao clicar no botão "Cadastrar novo" o sistema deverá exibir a tela "Grupo de produtos - Cadastrar""
+-Ao clicar em cadastrar novo, o sistema não exibe a data de cadastro conforme especificação (Front):
+	"O sistema deverá inicializar: o Carregando a data de cadastro com a data atual e não permitir edição."
+OK - O tamanho inativo continua sendo exibido como opção para ser utilizada no grupo de produtos (Investigar Back e Front).
+
+Erros na alteração
+-Ao clicar para alterar um grupo o texto que aparece é diferente da especificação (Front):
+	"Ao clicar em algum grupo de produtos o sistema deverá exibir a tela "Grupo de produtos - Alterar" "
+OK - Se o grupo de produtos possuir um tamanho inativo, este não está sendo mais exibido no grid (comportamento ok), mas o tamanho inativo continua sendo uma opção a ser utilizada no grupo de produtos. (Investigar Back e Front)
+
+
+
+
+
+*Tamanho de produtos
+
+Erros na inclusão
+- Ao clicar em cadastrar novo, o texto que aparece é diferente da especificação (Front):
+	"Ao clicar no botão "Cadastrar novo" o sistema deverá exibir a tela "Tamanhos - Cadastrar""
+- Ao clicar em cadastrar novo a data de cadastro não é exibida conforme especificação (Front);
+	"O sistema deverá inicializar: o Carregando a data de cadastro com a data atual e não permitir edição."
+
+Erros na alteração
+- Ao clicar para alterar um tamanho de produtos, o texto que aparece é diferente da especificação (Front)
+	"Ao clicar em algum tamanho o sistema deverá exibir a tela "Tamanhos - Alterar""
+OK - Ao inativar um tamanho a mensagem de aviso sobre o uso deste em algum produto não é exibida (Investigar Back e Front):
+	"Ao inativar um tamanho, caso o mesmo seja utilizado em algum produto, o sistema deverá apresentar a mensagem na forma de tooltip à direita: Este tamanho está sendo utilizado em um ou mais produtos. Ao inativar o mesmo, o sistema não vai mais apresentar o tamanho no cardápio.
+
+Erros na exclusão
+(PRECISA CORRIGIR) - Ao tentar excluir um tamanho que está sendo utilizado em algum produto, o sistema exibe os produtos que já foram excluídos na tela de aviso de uso.(Back)
+
+
+
+
+*Mesas
+
+Erros na inclusão
+- Ao clicar em cadastrar novo, o texto que aparece é diferente da especificação (Front)
+	"Ao clicar no botão "Cadastrar nova" o sistema deverá exibir a tela "Mesas - Cadastrar""
+- Ao clicar em cadastrar novo, o sistema não exibe a data de cadastro conforme especificado (Front):
+	"O sistema deverá inicializar: o Carregando a data de cadastro com a data atual e não permitir edição"
+
+Erros na alteração
+- Ao clicar para alterar uma mesa o texto que aparece é diferente da especificação (Front)
+	"Ao clicar em alguma mesa o sistema deverá exibir a tela "Mesas - Alterar" "
+
+

@@ -1,0 +1,49 @@
+<breadcrumb ng-model="breadcrumb"></breadcrumb>
+<div class="card scroll" ng-init="ctrl.initManutencao()" ng-style="styleCardBody">
+    <div class="card-body">
+        <div ng-if="onRequest" class="circular-loader"><div></div></div>
+
+        <div class="col-xs-12 pt-1 pb-1 pl-sm-1 pr-sm-1 pl-xs-0 pr-xs-0" style="{{'max-width: ' + (widthContent - 30) + 'px'}}" ng-if="!onRequest">
+            <h4 class="m-0 pb-1 pl-1 pr-1">{{ctrl.mesa.id == 0 ? 'Cadastro' : 'Alteração'}} de mesa</h4>
+
+            <div class="col-xs-12 p-0">
+                <form name="frm" novalidate ng-submit="ctrl.salvar()">
+                    <!--Nome-->
+                    <div class="col-xs-12 form-group" ng-class="{'has-danger': frm.descricao.$invalid && frm.$submitted, 'has-success': !frm.descricao.$invalid && frm.$submitted}">
+                        <label>Descrição*</label>
+                        <input class="form-control" type="text" maxlength="100" name="descricao" ng-model="ctrl.mesa.descricao" next-enter focus required/>
+                        <div ng-messages="frm.descricao.$error" ng-if="frm.descricao.$invalid && frm.$submitted">
+                            <div ng-messages-include="error-messages"></div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 p-0">
+                        <!--Ativo-->
+                        <div class="col-xs-6 pt-1 form-group" ng-if="ctrl.mesa.id > 0">
+                            <checkbox center ng-model="ctrl.mesa.ativo" checked-value="true" unchecked-value="false" multiselect="false" name="ativo" disabled="loading" left>
+                                Ativo
+                            </checkbox>
+                        </div>
+                        <!--Data de cadastro-->
+                        <div class=" col-xs-6 form-group text-xs-right" ng-show="ctrl.mesa.id != 0">
+                                <label>Data de cadastro</label>
+                                <div><strong>{{ctrl.mesa.dataCadastro|data}}</strong></div>
+                            </div>
+                    </div>
+                    <div class="col-xs-12 p-1 pb-0 text-xs-right">
+                        <button type="button" class="btn btn-none" ui-sref="principal.cadastros.mesas.listar" ng-disabled="loading" skip>
+                            Cancelar
+                        </button>
+                        <button class="btn btn-primary mr-05 pl-2 pr-2" type="submit" ng-disabled="loading || (frm.$submitted && frm.$invalid)">
+                            {{loading ? 'Aguarde...' : (ctrl.mesa.id > 0 ? 'Alterar' : 'Cadastrar')}}
+                        </button>
+                    </div>
+                </form>
+                <!-- <div class="col-xs-12">
+                    <small ng-if="ctrl.mesa.id == 0">
+                        <i>São as mesas do seu estabelicimento. Exemplo: Mesa 1, Mesa 2, Mesa 3 e etc...</i>
+                    </small>
+                </div> -->
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,50 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the tiny-mce.
+// -----------------------------------------------------------------------------
+
+/* Modo default */
+.mce-tinymce.mce-container.mce-panel {
+    .mce-container-body.mce-stack-layout {
+        // Menu
+        .mce-container.mce-menubar.mce-toolbar.mce-stack-layout-item.mce-first {
+        }
+        // Toolbar
+        .mce-toolbar-grp.mce-container.mce-panel.mce-stack-layout-item {
+        }
+        // Edit Area
+        .mce-edit-area.mce-container.mce-panel.mce-stack-layout-item {
+        }
+        // Status Bar
+        .mce-statusbar.mce-container.mce-panel.mce-stack-layout-item.mce-last {
+        }
+    }
+}
+
+/* Modo inline */
+.mce-content-body {
+    border: 1px solid #ddd;
+    height: 200px;
+    padding: .2rem .4rem;
+
+    &.mce-edit-focus { outline: none; }
+}
+
+#mytoolbar {
+    bottom: 0;
+    left: 0;
+    position: fixed;
+    width: 100%;
+    z-index: $zindex-navbar-fixed;
+
+    .mce-tinymce.mce-tinymce-inline.mce-container.mce-panel {
+        height: 42px !important;
+        width: 100% !important;
+
+        .mce-container-body.mce-abs-layout { margin: auto; }
+    }
+}
+
+/* Oculta tooltip em tamanho mobile */
+@include media-breakpoint-down(sm){
+    .mce-tooltip { display: none; }
+}

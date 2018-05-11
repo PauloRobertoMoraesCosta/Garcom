@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{54FDC444-26F7-44A0-BDC5-6FF44BE49951}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Garcom.Dominio.Servico</RootNamespace>
+    <AssemblyName>Garcom.Dominio.Servico</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper, Version=6.0.2.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.6.0.2\lib\net45\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Dapper, Version=1.50.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Dapper.1.50.2\lib\net451\Dapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MySql.Data, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.6.9.9\lib\net45\MySql.Data.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="GerenciadorServico.cs" />
+    <Compile Include="Interface\IGerenciadorServico.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Servico\ServicoAuditoria.cs" />
+    <Compile Include="Servico\ServicoBase.cs" />
+    <Compile Include="Servico\ServicoExcecao.cs" />
+    <Compile Include="Servico\ServicoGrupoProduto.cs" />
+    <Compile Include="Servico\ServicoIngrediente.cs" />
+    <Compile Include="Servico\ServicoMesa.cs" />
+    <Compile Include="Servico\ServicoProduto.cs" />
+    <Compile Include="Servico\ServicoTamanhoProduto.cs" />
+    <Compile Include="Servico\ServicoUsuario.cs" />
+    <Compile Include="Validacao\ValidacaoBase.cs" />
+    <Compile Include="Validacao\ValidacaoGrupoProduto.cs" />
+    <Compile Include="Validacao\ValidacaoIngrediente.cs" />
+    <Compile Include="Validacao\ValidacaoMesa.cs" />
+    <Compile Include="Validacao\ValidacaoProduto.cs" />
+    <Compile Include="Validacao\ValidacaoTamanhoProduto.cs" />
+    <Compile Include="Validacao\ValidacaoUsuario.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Garcom.Core\Garcom.Core.csproj">
+      <Project>{ebf6647e-ef61-4518-98f7-228b16071d76}</Project>
+      <Name>Garcom.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Garcom.Dominio.Entidade\Garcom.Dominio.Entidade.csproj">
+      <Project>{dd73439e-6477-4e99-9ed6-fb59c5c59418}</Project>
+      <Name>Garcom.Dominio.Entidade</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Garcom.InfraNew\Garcom.Infra.csproj">
+      <Project>{08cebc15-c9dd-4d6b-a69c-8844408b0451}</Project>
+      <Name>Garcom.Infra</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

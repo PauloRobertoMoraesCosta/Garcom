@@ -1,0 +1,92 @@
+<breadcrumb ng-model="breadcrumb"></breadcrumb>
+<div class="card scroll" ng-style="styleCardBody" ng-init="ctrl.initListar()">
+    <div class="card-body">
+        <spinner ng-if="onRequest"></spinner>
+
+        <div class="col-xs-12 col-sm-11 col-md-11 col-lg-10 col-xl-10 p-1" style="max-width: 1100px" ng-if="!onRequest">
+            <h4 class="m-0 pb-1">Ingredientes</h4>
+
+            <div class="col-xs-12 p-0">
+                <button class="btn btn-primary" ng-click="ctrl.goManutencao()">
+                    <i class="material-icons">add</i> Cadastrar novo&nbsp;&nbsp;
+                </button>
+            </div>
+
+            <div class="col-xs-12 p-0 pt-1">
+                <div class="text-placeholder" ng-show="ctrl.ingredientes.length == 0">
+                    <label>Clique em "Cadastrar novo" e cadastre um ingrediente.</label>
+                </div>
+                <table ng-if="!onRequest" class="table table-responsive" ng-style="{'max-width': (widthBody-30)+'px'}">
+                    <thead ng-if="ctrl.ingredientes.length > 0">
+                        <tr>
+                            <th width="100%" ng-click="ctrl.ordenar('descricao')">
+                                Nome
+                                <span>
+                                    <i class="material-icons md-18 gray-darker pos-absolute" style="top: 13px; height: 0" ng-if="ordenacao.coluna != 'descricao'">arrow_drop_up</i>
+                                    <i class="material-icons md-18 gray-darker pos-absolute" style="top: 19px; height: 0" ng-if="ordenacao.coluna != 'descricao'">arrow_drop_down</i>
+                                    <i class="material-icons md-18" ng-class="{'text-white': ordenacao.coluna != 'descricao'}">{{ ordenacao.asc ? 'arrow_drop_up' : 'arrow_drop_down' }}</i>
+                                </span>
+                            </th>
+                            <th ng-click="ctrl.ordenar('ativo')" ng-if="!minMobile">
+                                Status
+                                <span>
+                                    <i class="material-icons md-18 gray-darker pos-absolute" style="top: 13px; height: 0" ng-if="ordenacao.coluna != 'ativo'">arrow_drop_up</i>
+                                    <i class="material-icons md-18 gray-darker pos-absolute" style="top: 19px; height: 0" ng-if="ordenacao.coluna != 'ativo'">arrow_drop_down</i>
+                                    <i class="material-icons md-18" ng-class="{'text-white': ordenacao.coluna != 'ativo'}">{{ ordenacao.asc ? 'arrow_drop_up' : 'arrow_drop_down' }}</i>
+                                </span>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+
+
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            </th>
+                            <th>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody ng-if="ctrl.ingredientes.length > 0">
+                        <!--Table Filtro-->
+                        <tr rowspan="2" class="tableFilters">
+                            <td width="100%">
+                                <div class="form-group m-0">
+                                    <input type="text" class="form-control" maxlength="100" ng-model="filtro.descricao" />
+                                </div>
+                            </td>
+                            <td ng-if="!minMobile">
+                                <div class="form-group m-0">
+                                    <select class="form-control pr-0" ng-model="filtro.ativo">
+                                        <option ng-value="undefined"> </option>
+                                        <option ng-value="true">Ativo</option>
+                                        <option ng-value="false">Inativo</option>
+                                    </select>
+                                </div>
+                            </td>
+                            <td>
+
+                            </td>
+                        </tr>
+                        <tr style="height: 10px;"></tr>
+
+                        <!-- Table Conteudo -->
+                        <tr ng-repeat="i in ctrl.ingredientes | filter:filtro:semAcentos" class="table-content">
+                            <td class="ellipsed" width="100%" ng-click="ctrl.goManutencao(i.id)" title="{{i.descricao}}">
+                                {{i.descricao}}
+                            </td>
+                            <td class="ellipsed" ng-click="ctrl.goManutencao(i.id)" ng-if="!minMobile" title="{{i.ativo ? 'Ativo' : 'Inativo'}}">
+                                {{i.ativo ? 'Ativo' : 'Inativo'}}
+                            </td>
+                            <td class="text-xs-center">
+                                <button class="btn-bullet danger no-float" style="padding: 0px 8px" ng-click="ctrl.excluir(i)" title="{{msgService.gerais.excluir()}}"><i class="material-icons md-18">delete_forever</i></button>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tfoot ng-if="ctrl.ingredientes.length == 0">
+                        <tr>
+                            <td colspan="4"></td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

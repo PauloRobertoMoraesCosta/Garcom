@@ -1,0 +1,63 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the tooltip.
+// -----------------------------------------------------------------------------
+
+.tooltip {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    min-width: 150px;
+    
+    /* Necessário repetir a formatação para as classes [top, right, bottom, left] porque o uibootstrap gera o conteúdo
+       com estas classes, e não com as previstas no bootstrap v4 (com o prefixo .tooltip-[top,right,bottom,left]) */
+    &.top {
+        padding: $tooltip-arrow-width 0;
+        margin-top: -$tooltip-margin;
+
+        .tooltip-inner::before {
+            bottom: 0;
+            left: 50%;
+            margin-left: -$tooltip-arrow-width;
+            content: "";
+            border-width: $tooltip-arrow-width $tooltip-arrow-width 0;
+            border-top-color: $tooltip-arrow-color;
+        }
+    }
+    &.right {
+        padding: 0 $tooltip-arrow-width;
+        margin-left: $tooltip-margin;
+
+        .tooltip-inner::before {
+            top: 50%;
+            left: 0;
+            margin-top: -$tooltip-arrow-width;
+            content: "";
+            border-width: $tooltip-arrow-width $tooltip-arrow-width $tooltip-arrow-width 0;
+            border-right-color: $tooltip-arrow-color;
+        }
+    }
+    &.bottom {
+        padding: $tooltip-arrow-width 0;
+        margin-top: $tooltip-margin;
+
+        .tooltip-inner::before {
+            top: 0;
+            left: 50%;
+            margin-left: -$tooltip-arrow-width;
+            content: "";
+            border-width: 0 $tooltip-arrow-width $tooltip-arrow-width;
+            border-bottom-color: $tooltip-arrow-color;
+        }
+    }
+    &.left {
+        padding: 0 $tooltip-arrow-width;
+        margin-left: -$tooltip-margin;
+
+        .tooltip-inner::before {
+            top: 50%;
+            right: 0;
+            margin-top: -$tooltip-arrow-width;
+            content: "";
+            border-width: $tooltip-arrow-width 0 $tooltip-arrow-width $tooltip-arrow-width;
+            border-left-color: $tooltip-arrow-color;
+        }
+    }
+}

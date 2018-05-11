@@ -1,0 +1,9 @@
+<button class="{{'btn ' + btnClass + ' pr-0'}}" ng-click="ctrl.toggleDrop()">
+    <span ng-bind-html="selected.content"></span>
+    <i class="material-icons" style="font-size: 30px">keyboard_arrow_down</i>
+</button>
+<div class="btn-select" ng-class="{'show': ctrl.droped}" ng-style="{'width': widthButton + 'px'}">
+    <ul>
+        <li ng-repeat="item in ctrl.itensMenu" ng-bind-html="item.content" ng-click="ctrl.click(item)"></li>
+    </ul>
+</div>

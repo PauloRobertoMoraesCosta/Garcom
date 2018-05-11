@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{397FF7B8-D6BA-4ED0-AAFB-687A4CCAF2CC}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Garcom.Aplicacao</RootNamespace>
+    <AssemblyName>Garcom.Aplicacao</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper">
+      <HintPath>..\packages\AutoMapper.6.0.2\lib\net45\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Implementacao\AppBase.cs" />
+    <Compile Include="Implementacao\AppGrupoProduto.cs" />
+    <Compile Include="Implementacao\AppIngrediente.cs" />
+    <Compile Include="Implementacao\AppMesa.cs" />
+    <Compile Include="Implementacao\AppProduto.cs" />
+    <Compile Include="Implementacao\AppTamanhoProduto.cs" />
+    <Compile Include="Implementacao\AppUsuario.cs" />
+    <Compile Include="Interfaces\IAppMesa.cs" />
+    <Compile Include="Interfaces\IAppProduto.cs" />
+    <Compile Include="Interfaces\IAppTamanhoProduto.cs" />
+    <Compile Include="Interfaces\IAppBase.cs" />
+    <Compile Include="Interfaces\IAppGrupoProduto.cs" />
+    <Compile Include="Interfaces\IAppIngrediente.cs" />
+    <Compile Include="Interfaces\IAppUsuario.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Garcom.Core\Garcom.Core.csproj">
+      <Project>{EBF6647E-EF61-4518-98F7-228B16071D76}</Project>
+      <Name>Garcom.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Garcom.Dominio.Entidade\Garcom.Dominio.Entidade.csproj">
+      <Project>{dd73439e-6477-4e99-9ed6-fb59c5c59418}</Project>
+      <Name>Garcom.Dominio.Entidade</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Garcom.Dominio.Servico\Garcom.Dominio.Servico.csproj">
+      <Project>{54fdc444-26f7-44a0-bdc5-6ff44be49951}</Project>
+      <Name>Garcom.Dominio.Servico</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Garcom.InfraNew\Garcom.Infra.csproj">
+      <Project>{08cebc15-c9dd-4d6b-a69c-8844408b0451}</Project>
+      <Name>Garcom.Infra</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

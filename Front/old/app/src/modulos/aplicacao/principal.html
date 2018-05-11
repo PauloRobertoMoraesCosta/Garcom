@@ -1,0 +1,72 @@
+<div class="principal">
+
+    <!--MENU-->
+    <div class="menu-bar" ng-controller="menubarCtrl as ctrl">
+        <!--MENU TOP-->
+        <div class="topbar animated slideInDown">
+            <div>
+                <div></div>
+            </div>
+            <!--ITENS-->
+            <section>
+                <div class="btn-bullet float-left" ng-if="ctrl.mobile" ng-click="ctrl.toggleMenu()">
+                    <i class="material-icons" ng-if="!ctrl.showMenu">menu</i>
+                    <i class="material-icons" ng-if="ctrl.showMenu">close</i>
+                </div>
+
+                <div class="btn-bullet float-right" ng-click="$parent.ctrl.logout()" title="Sair"><i class="material-icons">exit_to_app</i></div>
+                <div class="btn-bullet float-right" ng-click="null" title="Configurações"><i class="material-icons">settings</i></div>
+            </section>
+        </div>
+
+        <!--MENU BAR-->
+        <div class="menu animated" ng-class="{'slideInLeft': (ctrl.showMenu && ctrl.mobile) || !ctrl.mobile, 'slideOutLeft': !ctrl.showMenu && ctrl.mobile}">
+            <section>
+                <ul>
+                    <li ng-repeat="item in ctrl.itens">
+                        <!--ITEM-->
+                        <div ng-if="item.inativo" class="disabled">
+                            <i ng-if="item.iconeClass" class="material-icons">{{item.iconeClass}}</i>
+                            <img ng-if="item.iconeSvg" width="{{item.iconeSvg.width}}" ng-src="{{item.iconeSvg.disabled}}"/>
+                            <!--<object ng-if="item.iconeSvg" ng-data="{{item.iconeSvg}}" type="image/svg+xml" width="24"></object>-->
+                            &nbsp;{{item.nome}}
+                        </div>
+                        <div ng-if="!item.inativo && (item.submenu == null || item.submenu.itens.length == 0)" ng-click="ctrl.goState(item)" ng-class="{'selected': state.current.name == item.state}">
+                            <i ng-if="item.iconeClass" class="material-icons">{{item.iconeClass}}</i>
+                            <img ng-if="item.iconeSvg" width="{{item.iconeSvg.width}}" ng-src="{{item.iconeSvg.enabled}}"/>
+                            &nbsp;{{item.nome}}
+                        </div>
+                        <div ng-if="!item.inativo && item.submenu != null && item.submenu.itens.length > 0" ng-click="ctrl.toggleSubmenu(item)" ng-class="{'selected': item.submenu.show}">
+                            <i ng-if="item.iconeClass" class="material-icons">{{item.iconeClass}}</i>
+                            <img ng-if="item.iconeSvg" width="{{item.iconeSvg.width}}" ng-src="{{item.iconeSvg.enabled}}"/>
+                            &nbsp;{{item.nome}}
+                        </div>
+
+                        <!--SUBMENU-->
+                        <!--<ul ng-if="!item.inativo && item.submenu != null && item.submenu.itens.length > 0" ng-show="item.submenu.show">-->
+                        <ul ng-if="!item.inativo && item.submenu != null && item.submenu.itens.length > 0" ng-style="{'height': (item.submenu.show ? (31*item.submenu.itens.length) : 0) + 'px'}">
+                            <li ng-repeat="subItem in item.submenu.itens" ng-style="subItem.inativo && 'opacity: .5; cursor: default'">
+                                <!--ITEM-->
+                                <div ng-if="subItem.inativo" class="disabled">
+                                    <i class="material-icons" ng-if="subItem.iconeClass">{{subItem.iconeClass}} </i>{{subItem.nome}}
+                                </div>
+                                <div ng-if="!subItem.inativo" ng-click="ctrl.goState(subItem)" ng-class="{'selected': state.current.name == subItem.state}">
+                                    <i class="material-icons" ng-if="subItem.iconeClass">{{subItem.iconeClass}}</i>{{subItem.nome}}
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </section>
+        </div>
+        <div class="backexpand-menu animated" ng-show="ctrl.mobile && ctrl.showMenu" ng-click="ctrl.toggleMenu()" ng-class="{'fadeIn': ctrl.showMenu && ctrl.mobile, 'fadeOut': !ctrl.showMenu && ctrl.mobile}"></div>
+    </div>
+
+    <!--CONTEUDO-->
+    <div class="conteudo animated fadeIn">
+        <spinner ng-if="routeLoading" padding="{{!mobile ? '100px 0 0 220px' : null}}"></spinner>
+        <div ng-if="!routeLoading">
+            <div ui-view></div>
+        </div>
+    </div>
+</div>

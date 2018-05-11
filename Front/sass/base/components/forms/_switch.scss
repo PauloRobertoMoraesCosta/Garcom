@@ -1,0 +1,75 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the switch.
+// -----------------------------------------------------------------------------
+
+.switch{
+    cursor: pointer;
+    margin-top: 6px;
+    
+    .switch-label {
+        color: #ccc;
+        font-size: 18px;
+        float: right;
+        line-height: 25px;
+        padding: 0 10px;
+        
+        @extend .transicao-switch;
+    }
+    
+    .switch-button {
+        background: #818a91;
+        border: 1px #ccc solid;
+        border-radius: 25px;
+        height: 25px;
+        float: right;
+        width: 50px;
+        
+        @extend .transicao-switch;
+
+        .switch-state {
+            background: #FFF;
+            border: inherit;
+            border-radius: inherit;
+            float: right;
+            height: 25px;
+            margin-right: 25px;
+            margin-top: -1px;
+            width: 25px;
+            
+            @extend .transicao-switch;
+            
+        }
+    }
+    
+    &.active{
+        
+        .switch-label {
+            color:$brand-success;
+        }
+        
+        .switch-button {
+                background: $brand-success;
+            
+            .switch-state {                
+                margin-right: -1px;
+            }
+        }
+    }
+    
+    &.disabled {
+        cursor: not-allowed;        
+        
+        .switch-label {
+            color: #ddd;
+        }
+        
+        .switch-button {
+                background: #ddd;
+            
+            .switch-state {                
+                margin-right: -1px;
+            }
+        }
+    }
+
+}

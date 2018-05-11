@@ -1,0 +1,41 @@
+/**
+ * Basic typography style for copy text
+ */
+
+html {
+    body {
+        &.light {
+            color: $corTextoDark;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            color: $brand-secondary;
+            font-weight: normal;
+
+            & small { font-size: $font-size-root; }
+        }
+        h1 { font-size: $font-size-h1; font-family: $font-family-base; }
+        h2 { font-size: $font-size-h2; font-family: $font-family-base; }
+        h3 {font-size: $font-size-h3; font-family: $font-family-base; }
+        h4 { font-size: $font-size-h4; font-family: $font-family-base; }
+        h5, h6 { display: none; }
+        
+        a {
+            cursor: pointer;
+            text-decoration: underline;
+
+            &[disabled] {
+                color: $corTextoPlaceholder;
+                @extend .not-active;
+            }
+            
+            &:not([href]):not([tabindex]) {
+                color: $link-color;
+
+                @include hover-focus {
+                    color: $link-hover-color;
+                }
+            }
+        }
+    }
+}

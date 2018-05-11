@@ -1,0 +1,8 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the modal of the site/application.
+// -----------------------------------------------------------------------------
+
+/* Fix for modal open */
+body.modal-open {
+    overflow: hidden !important;
+}

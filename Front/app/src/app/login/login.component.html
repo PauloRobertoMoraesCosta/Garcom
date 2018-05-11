@@ -1,0 +1,30 @@
+<div class="login login-theme animated fadeIn">
+    <spinner *ngIf="loading" white="true"></spinner>
+    <div class="login-area">
+        <div *ngIf="!loading">
+            <section class="animated slideInDown">
+                <div class="logo">
+                    <img src="assets/img/logo_1.png" alt="Garçom" />
+                </div>
+                <form novalidate name="frm" (ngSubmit)="enviar()">
+                    <div>
+                        <div class="form-group m-0">
+                            <i class="material-icons">face</i>
+                            <input [(ngModel)]="usuario.login" id="login" name="login" autocomplete="off" maxlength="30" required placeholder="Usuário" class="form-control usuario" autofocus type="text"/>
+                        </div>
+                        <div class="form-group m-0">
+                            <i class="material-icons">vpn_key</i>
+                            <input [(ngModel)]="usuario.senha" id="senha" name="senha" autocomplete="off" maxlength="10" required placeholder="Senha" class="form-control senha" type="password"/>
+                        </div>
+
+                        <div class="form-group m-0">
+                            <checkbox [model]="manterLogin" [multiselect]="false" [checked-value]="true" [unchecked-value]="false">Lembrar minhas credenciais por {{tempoManterLogin}} horas</checkbox>
+                        </div>
+
+                        <button id="logar" type="submit" class="btn btn-primary full-width mt-05">ENTRAR</button>
+                    </div>
+                </form>
+            </section>
+        </div>
+    </div>
+</div>

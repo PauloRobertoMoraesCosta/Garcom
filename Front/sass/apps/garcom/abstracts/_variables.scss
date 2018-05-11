@@ -1,0 +1,318 @@
+// -----------------------------------------------------------------------------
+// This file contains all application-wide Sass variables.
+// -----------------------------------------------------------------------------
+
+// Table of Contents
+//
+// URLs / Paths
+// Colors
+// Options
+// Spacing
+// Body
+// Links
+// Grid breakpoints
+// Grid containers
+// Grid columns
+// Fonts
+// Components
+
+// General variable structure
+//
+// Variable format should follow the `$component-modifier-state-property` order.
+
+
+// URLs
+//
+// Paths for the application.
+$asset-path:                'assets/img/';
+$lib-path:                'assets/';
+
+// Colors
+//
+// Grayscale and brand colors for use across the app.
+$gray-darkest:              #373a3c;
+$gray-darker:               #666666;
+$gray-dark:                 #999999;
+$gray:                      #a9a9a9;
+$gray-light:                #dddddd;
+$gray-lighter:              #f7f7f9;
+$gray-lightest:             #fafafa;
+
+$brand-primary:             #0084ff;
+$brand-secondary:           #0a66bc;
+$brand-success:             #259C00;
+$brand-danger:              #CE4C4C;
+$brand-info:                #5bc0de;
+$brand-warning:             #f0ad4e;
+
+
+$corTexto:                  #FFFFFF;
+$corTextoDark:              $gray-darker;
+$corTextoPlaceholder:       $gray;
+
+$bg-light:                  $gray-light;
+$bg-dark:                   $gray-dark;
+$bg-dark-blue:              #15253c;
+
+$bg-item-active:            rgba(0,158,185,.25);
+
+$border-color:              $gray-light;
+$disabled-color:            #cccccc;
+
+$cor-masculino:             #00FFFF;
+$cor-feminino:              #FFAEC9;
+
+// Options
+//
+// Quickly modify global styling by enabling or disabling optional features.
+$enable-shadows:            true;
+
+// Spacing
+//
+// Control the default styling of most Bootstrap elements by modifying these
+// variables. Mostly focused on spacing.
+// You can add more entries to the $spacers map, should you need more variation.
+
+
+
+// Body
+//
+// Settings for the `<body>` element.
+$body-bg:               $gray-lighter;
+$body-color:            $gray-darker;
+
+// Links
+//
+// Style anchor elements.
+$link-color:            $brand-primary;
+
+// Grid breakpoints
+//
+// Define the minimum dimensions at which your layout will change,
+// adapting to different screen sizes, for use in media queries.
+
+
+// Grid containers
+//
+// Define the maximum width of `.container` for different screen sizes.
+
+
+// Grid columns
+//
+// Set the number of columns and specify the width of the gutters.
+
+
+// Typography
+//
+// Font, line-height, and color for body text, headings, and more.
+$font-family-sans-serif: 'Open Sans', sans-serif;
+$font-family-serif:      'Open Sans', serif;
+$font-family-base:       $font-family-sans-serif;
+
+// Pixel value used to responsively scale all typography. Applied to the `<html>` element.
+$font-size-root:    14px; // 1rem = 14px
+
+$font-size-h1:      2.6rem;
+$font-size-h2:      2.2rem;
+$font-size-h3:      1.8rem;
+$font-size-h4:      1.4rem;
+$font-size-h5:      1.2rem;
+$font-size-h6:      1.1rem;
+
+$headings-color:    $brand-primary;
+
+$small-font-size:   .86rem;
+
+$icon-size-xs:      18px;
+$icon-size-sm:      24px;
+$icon-size-md:      36px;
+$icon-size-lg:      48px;
+$icon-size-xl:      72px;
+
+// URLs
+//
+// Used across the application
+
+
+// Components
+//
+// Define common padding and border radius sizes and more.
+$line-height-lg:         1.5;
+$line-height-sm:         1.5;
+
+// Tables
+//
+// Customizes the `.table` component with basic values, each used across all table variations.
+$table-cell-padding:            .5rem;
+
+$table-bg-accent:               $gray-lightest;
+$table-bg-hover:                $gray-lighter;
+
+$table-border-color:            $border-color;
+
+// Buttons
+//
+// For each of Bootstrap's buttons, define text, background and border color.
+$btn-padding-x:                  .5rem;
+$btn-padding-y:                  .3rem;
+
+$btn-secondary-color:            $brand-primary;
+$btn-secondary-bg:               $gray-lightest;
+$btn-secondary-border:           $border-color;
+
+// Allows for customizing button radius independently from global border radius
+$btn-border-radius:              .14rem;
+$btn-border-radius-lg:           .14rem;
+$btn-border-radius-sm:           .14rem;
+
+// Forms
+$input-padding-y:                .4rem;
+$form-group-margin-bottom:       1.2rem;
+
+$input-color:                    $corTextoDark;
+$input-border-color:             $border-color;
+$input-box-shadow:               inset 0 1px 1px rgba(0,0,0,.06);
+
+$input-border-radius:            .14rem;
+$input-border-radius-lg:         .14rem;
+$input-border-radius-sm:         .14rem;
+
+$input-border-focus:             none;
+$input-box-shadow-focus:         none;
+
+$input-height:                   35px;
+
+$input-group-addon-bg:           $gray-lightest;
+
+// Form validation icons
+
+
+// Dropdowns
+//
+// Dropdown menu container and contents.
+$dropdown-link-color:            $corTextoDark;
+$dropdown-link-hover-color:      darken($corTextoDark, 7%);
+
+$dropdown-link-active-color:     $link-color;
+$dropdown-link-active-bg:        $gray-lighter;
+
+$dropdown-link-disabled-color:   $gray-light;
+
+$dropdown-header-color:          $gray-light;
+
+// Z-index master list
+//
+// Warning: Avoid customizing these values. They're used for a bird's eye view
+// of components dependent on the z-axis and are designed to all work together.
+$zindex-popover:           1035; // para não sobrepor $zindex-modal-bg
+
+
+// Navbar
+$navbar-border-radius:              0;
+$navbar-padding-x:                  0;
+$navbar-padding-y:                  0;
+$navbar-brand-padding-y:            .5rem;
+
+$navbar-toggler-padding-x:           .9rem;
+$navbar-toggler-padding-y:           1rem;
+
+$navbar-dark-color:                 rgba(255,255,255,1);
+$navbar-dark-hover-color:           rgba(255,255,255,.75);
+$navbar-dark-active-color:          rgba(255,255,255,1);
+$navbar-dark-disabled-color:        rgba(255,255,255,.5);
+
+// Navs
+$nav-vertical-link-padding:         1rem;
+
+$nav-light-link-color:              $corTextoDark;
+$nav-light-hover-bg:                $gray-lighter;
+$nav-light-active-color:            $brand-primary;
+
+// Pagination
+
+
+// Jumbotron
+
+
+// Form states and alerts
+//
+// Define colors for form feedback states and, by default, alerts.
+$state-success-text:             #ffffff;
+$state-success-bg:               $brand-success;
+
+$state-info-text:                #ffffff;
+$state-info-bg:                  $brand-info;
+
+$state-warning-text:             #ffffff;
+$state-warning-bg:               $brand-warning;
+
+$state-danger-text:              #ffffff;
+$state-danger-bg:                $brand-danger;
+
+
+// Cards
+$card-spacer-x:            0;
+$card-spacer-y:            0;
+$card-border-radius:       .05rem;
+$card-border-color:        $gray-light;
+
+// Tooltips
+
+// Popovers
+$popover-arrow-width:                 7px;
+
+// Tags
+$tag-font-size:             70%;
+
+// Use a higher than normal value to ensure completely rounded edges when
+// customizing padding or font-size on labels.
+$tag-pill-border-radius:    50%;
+
+// Modals
+
+// Padding applied to the modal body
+
+
+// Alerts
+//
+// Define alert colors, border radius, and padding.
+$alert-border-radius:         .05rem;
+
+// Progress bars
+
+// List group
+$list-group-bg:                 #fff;
+$list-group-border-color:       $border-color;
+$list-group-border-radius:      none;
+
+$list-group-item-padding-x:     .5rem;
+$list-group-item-padding-y:     .5rem;
+
+$list-group-disabled-color:     #ccc;
+$list-group-disabled-bg:        $gray-lightest;
+
+// Image thumbnails
+
+// Figures
+
+// Breadcrumbs
+$breadcrumb-padding-y:          .5rem;
+$breadcrumb-padding-x:          1rem;
+$breadcrumb-item-padding:       .5rem;
+
+$breadcrumb-bg:                 $gray-lightest;
+$breadcrumb-divider-color:      $corTextoDark;
+$breadcrumb-active-color:       $corTextoDark;
+
+// Media objects
+
+// Carousel
+
+// Close
+
+// Code
+
+// Materialize Global Overrides
+//
+// Spinner
+$spinner-default-color:     $brand-primary;

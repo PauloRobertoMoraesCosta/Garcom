@@ -1,0 +1,65 @@
+* Sistema deverá pegar o endereço do servidor de forma dinâmica para colocar no httpService.js
+
+* Sistema deverá ter a opção de "lembrar-me por 12 horas"
+
+* Tratar as formas de sair do sistema, perguntando se realmente quer sair. (f5, fechar aba, fechar navegador, logoff)
+
+* O campo usuárioe senha do login não está limitando a quantidade de caracteres
+
+* O sistema não está destacando os campos usuário e senha quando os mesmos ficam em branco.
+
+* (Eric) verificar uma forma de unificar e padronizar as mensagens do front, o back fez isso em um arquivo.
+
+* (Ronaldo) Pesquisar sobre a criação de um certificado emitido por nós, para aparecer site seguro no browser .
+
+* O sistema não está scrolando a tela para o primeiro campo ao fazer a validação.
+
+* Padronizar as ordenações das tabelas do sistema.
+
+* Padronizar o hint do botão excluir.
+
+* Melhorar o layout do excluir (tirar bordar e colocar rolagem quando tiver muitos itens)
+ 
+1 Na tela de usuários, 
+
+* sistema não apresentou a mensagem informativa
+
+* Ao pesquisar um usuário, sistema está alterando o layout
+
+* Ao clicar para ordernar o perfil, o sistema está mechendo nas linhas da tabela.
+
+* O layout das colunas está ficando esticado quando o nome do usuário é grande
+
+1.1 Usuário alterar.
+
+* O sistema não inativou o campo "usuário".
+
+* O sistema não está preenchendo o campo senha e permite gravar sem informar a senha.
+
+* Colocar a validação no campo senha.
+
+1.2 Usuário alterar
+
+* Ao iniciar o sistema não está apresentando mensagem no campo "confirmação de senha".
+
+
+2 Ingrediente
+
+* o sistema não está iniciando ordenando por nome do ingrediente.
+
+
+3 Grupo de produtos.
+
+* o sistema não está iniciando ordenando por nome do grupo de produto.
+
+
+4 Tamanho de produtos
+
+* O sistema não permite limpar o filtro grupo quando eu seleciono um grupo.
+
+
+5 Mesa 
+
+* O sistema permitir gravar mesa sem descrição.
+
+* A exclusãomesa não apresenta desfazer.

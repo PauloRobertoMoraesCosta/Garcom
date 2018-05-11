@@ -1,0 +1,107 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the popover.
+// -----------------------------------------------------------------------------
+
+.popover {
+    /* Necessário repetir a formatação para as classes [top, right, bottom, left] porque o uibootstrap gera o conteúdo
+       com estas classes, e não com as previstas no bootstrap v4 (com o prefixo .tooltip-[top,right,bottom,left]) */
+    &.top {
+        margin-top: -$popover-arrow-width;
+
+        &::before,
+        &::after {
+            left: 50%;
+            border-bottom-width: 0;
+        }
+
+        &::before {
+            bottom: -$popover-arrow-outer-width;
+            margin-left: -$popover-arrow-outer-width;
+            border-top-color: $popover-arrow-outer-color;
+        }
+
+        &::after {
+            bottom: -($popover-arrow-outer-width - 1);
+            margin-left: -$popover-arrow-width;
+            border-top-color: $popover-arrow-color;
+        }
+    }
+
+    &.right {
+        margin-left: $popover-arrow-width;
+
+        &::before,
+        &::after {
+            top: 50%;
+            border-left-width: 0;
+        }
+
+        &::before {
+            left: -$popover-arrow-outer-width;
+            margin-top: -$popover-arrow-outer-width;
+            border-right-color: $popover-arrow-outer-color;
+        }
+
+        &::after {
+            left: -($popover-arrow-outer-width - 1);
+            margin-top: -($popover-arrow-outer-width - 1);
+            border-right-color: $popover-arrow-color;
+        }
+    }
+
+    &.bottom {
+        margin-top: $popover-arrow-width;
+
+        &::before,
+        &::after {
+            left: 50%;
+            border-top-width: 0;
+        }
+
+        &::before {
+            top: -$popover-arrow-outer-width;
+            margin-left: -$popover-arrow-outer-width;
+            border-bottom-color: $popover-arrow-outer-color;
+        }
+
+        &::after {
+            top: -($popover-arrow-outer-width - 1);
+            margin-left: -$popover-arrow-width;
+            border-bottom-color: $popover-title-bg;
+        }
+
+        // This will remove the popover-title's border just below the arrow
+        .popover-title::before {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            display: block;
+            width: 20px;
+            margin-left: -10px;
+            content: "";
+            border-bottom: 1px solid $popover-title-bg;
+        }
+    }
+
+    &.left {
+        margin-left: -$popover-arrow-width;
+
+        &::before,
+        &::after {
+            top: 50%;
+            border-right-width: 0;
+        }
+
+        &::before {
+            right: -$popover-arrow-outer-width;
+            margin-top: -$popover-arrow-outer-width;
+            border-left-color: $popover-arrow-outer-color;
+        }
+
+        &::after {
+            right: -($popover-arrow-outer-width - 1);
+            margin-top: -($popover-arrow-outer-width - 1);
+            border-left-color: $popover-arrow-color;
+        }
+    }
+}

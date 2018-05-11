@@ -1,0 +1,46 @@
+string sql =
+                @" select
+                        aut.ID,
+                        aut.ID_LOTE as IdLote,
+	                    aut.CODIGO_PACIENTE as IdPaciente,
+	                    aut.NOME_PACIENTE as NomePaciente,
+	                    aut.DATA_NASCIMENTO as DataNasc,
+                        aut.SEXO_PACIENTE as SexoPaciente,
+	                    aut.PROTOCOLO,
+	                    aut.LOCAL,
+	                    aut.CRM_MEDICO as CRM,
+	                    aut.NOME_MEDICO as NomeMedico,
+	                    aut.DATA_SOLICITACAO as DataSolicitacao,
+                        item.ID,
+                        item.NUM_ITEM as NumItem,
+	                    item.ID_AUTORIZACAO as IdAutorizacao,
+	                    item.ID_MATERIAL as IdMaterial,
+	                    item.MATERIAL_EXAME as Material,
+                        item.EXAME_SAO_MARCOS as ExameSaoMarcos,
+	                    item.LOCAL_PROTOCOLO_TUBO as LocalProtTubo,
+	                    item.CODIGO_EXAME as CodigoExame,
+                        item.DATA_PREVISTA as DataResultado,
+                        item.IDENTIFICACAO_APOIO as IdentificacaoApoio
+                    from AUTORIZACAO_SM aut
+                    inner join AUTORIZACAO_SM_ITENS item
+                        on item.ID_AUTORIZACAO = aut.ID
+                    where aut.DATA_SOLICITACAO >= @DATAINICIO
+                      and aut.DATA_SOLICITACAO <= @DATAFIM  
+                    order by aut.id, item.id, item.id_autorizacao           
+            ";
+            
+            var dicionario = new Dictionary<int, AutorizacaoExame>();
+            _conexao.Query<AutorizacaoExame, AutorizacaoExamesItens, AutorizacaoExame>
+                (sql, (a, i) =>
+                {
+                    AutorizacaoExame autorizacao;
+                    if (!dicionario.TryGetValue(a.Id, out autorizacao))
+                        dicionario.Add(a.Id, autorizacao = a);
+
+                    autorizacao.Itens.Add(i);
+
+                    return autorizacao;
+
+                }, new { DATAINICIO = inicio, DATAFIM = fim }).AsQueryable();
+
+            return dicionario.Values.ToList()

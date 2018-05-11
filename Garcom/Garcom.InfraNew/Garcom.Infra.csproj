@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{08CEBC15-C9DD-4D6B-A69C-8844408B0451}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Garcom.Infra</RootNamespace>
+    <AssemblyName>Garcom.Infra</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Dapper, Version=1.50.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Dapper.1.50.2\lib\net451\Dapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MySql.Data, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.6.9.9\lib\net45\MySql.Data.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MySql.Data.Entity.EF6, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.Entity.6.9.9\lib\net45\MySql.Data.Entity.EF6.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DBEscrita\ContextoEscrita.cs" />
+    <Compile Include="DBEscrita\Mapeamento\AuditoriaConfiguracao.cs" />
+    <Compile Include="DBEscrita\Mapeamento\ExcecaoConfiguracao.cs" />
+    <Compile Include="DBEscrita\Mapeamento\GrupoProdutoConfiguracao.cs" />
+    <Compile Include="DBEscrita\Mapeamento\ProdutoIngredienteTamanhoValorConfiguracao.cs" />
+    <Compile Include="DBEscrita\Mapeamento\GrupoProdutoTamanhoProdutoConfiguracao.cs" />
+    <Compile Include="DBEscrita\Mapeamento\ProdutoTamanhoValorConfiguracao.cs" />
+    <Compile Include="DBEscrita\Mapeamento\IngredienteConfiguracao.cs" />
+    <Compile Include="DBEscrita\Mapeamento\MesaConfiguracao.cs" />
+    <Compile Include="DBEscrita\Mapeamento\PerfilConfiguracao.cs" />
+    <Compile Include="DBEscrita\Mapeamento\ProdutoConfiguracao.cs" />
+    <Compile Include="DBEscrita\Mapeamento\ProdutoIngredienteConfiguracao.cs" />
+    <Compile Include="DBEscrita\Mapeamento\TamanhoProdutoConfiguracao.cs" />
+    <Compile Include="DBEscrita\Mapeamento\UsuarioConfiguracao.cs" />
+    <Compile Include="DBEscrita\MySQLConfiguration.cs" />
+    <Compile Include="DBEscrita\MySqlHistoryContext.cs" />
+    <Compile Include="DBLeitura\ContextoLeitura.cs" />
+    <Compile Include="Migrations\201712021638134_DbVersao01.cs" />
+    <Compile Include="Migrations\201712021638134_DbVersao01.Designer.cs">
+      <DependentUpon>201712021638134_DbVersao01.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Repositorio\RepositorioExcecao.cs" />
+    <Compile Include="Repositorio\RepositorioProdutoIngrediente.cs" />
+    <Compile Include="Repositorio\RepositorioProdutosIngredienteTamanhoValor.cs" />
+    <Compile Include="UnitOfWork\IUnitOfWork.cs" />
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositorio\RepositorioAuditoria.cs" />
+    <Compile Include="Repositorio\RepositorioBase.cs" />
+    <Compile Include="Repositorio\RepositorioGrupoProduto.cs" />
+    <Compile Include="Repositorio\RepositorioIngrediente.cs" />
+    <Compile Include="Repositorio\RepositorioMesa.cs" />
+    <Compile Include="Repositorio\RepositorioProduto.cs" />
+    <Compile Include="Repositorio\RepositorioTamanhoProduto.cs" />
+    <Compile Include="Repositorio\RepositorioProdutoTamanhoValor.cs" />
+    <Compile Include="Repositorio\RepositorioUsuario.cs" />
+    <Compile Include="UnitOfWork\UnitOfWork.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Garcom.Core\Garcom.Core.csproj">
+      <Project>{ebf6647e-ef61-4518-98f7-228b16071d76}</Project>
+      <Name>Garcom.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Garcom.Dominio.Entidade\Garcom.Dominio.Entidade.csproj">
+      <Project>{dd73439e-6477-4e99-9ed6-fb59c5c59418}</Project>
+      <Name>Garcom.Dominio.Entidade</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201712021638134_DbVersao01.resx">
+      <DependentUpon>201712021638134_DbVersao01.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,59 @@
+.expand-box{
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px transparent solid;
+    border-radius: 4px;
+
+    > button{
+        cursor: pointer;
+        background-color: #FFF;
+        border: 1px darken($btn-secondary-bg, 18%) solid;
+        border-radius: 3px;
+        text-align: center;
+        color: $brand-primary;
+        padding: 7px 10px;
+        width: 100%;
+
+        > i{
+            font-size: 24px;
+            padding: 0 10px 0 10px;
+        }
+        span{
+            font-size: 15px;
+        }
+    }
+    > section{
+        display: none;
+    }
+
+    &.expanded{
+        border-color: darken($btn-secondary-bg, 18%);
+
+        > button{
+            border-top-color: transparent;
+            border-left-color: transparent;
+            border-right-color: transparent;
+            border-radius: 3px 3px 0 0;
+        }
+
+        > section{
+            display: table;
+            width: 100%;
+            padding: 15px;
+
+            > *{
+                margin: 0 !important;
+                padding-bottom: .7rem;
+                padding-top: .7rem;
+                border-bottom: 1px #E5E5E5 solid;
+            }
+            > *:first-child{
+                padding-top: 0;
+            }
+            > *:last-child{
+                padding-bottom: 0;
+                border-color: transparent;
+            }
+        }
+    }
+}

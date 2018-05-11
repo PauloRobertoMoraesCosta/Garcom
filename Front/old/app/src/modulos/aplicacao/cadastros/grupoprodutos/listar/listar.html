@@ -1,0 +1,88 @@
+<breadcrumb ng-model="breadcrumb"></breadcrumb>
+<div class="card scroll" ng-style="styleCardBody" ng-init="ctrl.initListar()">
+    <div class="card-body">
+        <spinner ng-if="onRequest"></spinner>
+        <div class="col-xs-12 col-sm-12 col-md-10 col-lg-9 col-xl-12 p-1" style="max-width: 1100px" ng-if="!onRequest">
+            <h4 class="m-0 pb-1">Grupo de produtos</h4>
+
+            <div class="col-xs-12 p-0">
+                <button class="btn btn-primary" ng-click="ctrl.goManutencao()">
+                    <i class="material-icons">add</i> Cadastrar novo&nbsp;&nbsp;
+                </button>
+            </div>
+
+            <div class="col-xs-12 p-0 pt-1">
+                <div class="text-placeholder" ng-show="ctrl.grupoprodutos.length == 0">
+                    <label>Clique em "Cadastrar novo" e cadastre um grupo de produtos.</label>
+                </div>
+                <table ng-if="!onRequest" class="table table-responsive" ng-style="{'max-width': (widthBody-30)+'px'}">
+                    <thead ng-if="ctrl.grupoprodutos.length > 0">
+                        <tr>
+                            <th width="100%" ng-click="ctrl.ordenar('nome')">
+                                Nome
+                                <span>
+                                    <i class="material-icons md-18 gray-darker pos-absolute" style="top: 13px; height: 0" ng-if="ordenacao.coluna != 'nome'">arrow_drop_up</i>
+                                    <i class="material-icons md-18 gray-darker pos-absolute" style="top: 19px; height: 0" ng-if="ordenacao.coluna != 'nome'">arrow_drop_down</i>
+                                    <i class="material-icons md-18" ng-class="{'text-white': ordenacao.coluna != 'nome'}">{{ ordenacao.asc ? 'arrow_drop_up' : 'arrow_drop_down' }}</i>
+                                </span>
+                            </th>
+                            <th ng-click="ctrl.ordenar('permiteDividir')" ng-if="!minMobile">
+                                Permite Dividir
+                                <span>
+                                    <i class="material-icons md-18 gray-darker pos-absolute" style="top: 13px; height: 0" ng-if="ordenacao.coluna != 'permiteDividir'">arrow_drop_up</i>
+                                    <i class="material-icons md-18 gray-darker pos-absolute" style="top: 19px; height: 0" ng-if="ordenacao.coluna != 'permiteDividir'">arrow_drop_down</i>
+                                    <i class="material-icons md-18" ng-class="{'text-white': ordenacao.coluna != 'permiteDividir'}">{{ ordenacao.asc ? 'arrow_drop_up' : 'arrow_drop_down' }}</i>
+                                </span>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            </th>
+                            <th>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody ng-if="ctrl.grupoprodutos.length > 0">
+                        <!--Table Filtro-->
+                        <tr rowspan="2" class="tableFilters">
+                            <td width="50%">
+                                <div class="form-group m-0">
+                                    <input type="text" class="form-control" maxlength="100" ng-model="filtro.nome" class="link"/>
+                                </div>
+                            </td>
+                            <td ng-if="!minMobile">
+                                <div class="form-group m-0">
+                                    <select class="form-control pr-0" ng-model="filtro.permiteDividir">
+                                        <option ng-value="undefined"> </option>
+                                        <option ng-value="true">Sim</option>
+                                        <option ng-value="false">Não</option>
+                                    </select>
+                                </div>
+                            </td>
+
+                            </td>
+                        </tr>
+                        <tr style="height: 10px;"></tr>
+                        <!--Table Conteúdo-->
+                        <tr ng-repeat="p in ctrl.grupoprodutos | filter:filtro:semAcentos" class="table-content">
+                            <td class="ellipsed" width="100%" ng-click="ctrl.goManutencao(p.id)" title="{{p.nome}}">
+                                {{p.nome}}
+                            </td>
+                            <td ng-click="ctrl.goManutencao(p.id)" ng-if="!minMobile" title="{{p.permiteDividir ? 'Sim' : 'Não'}}">
+                                {{p.permiteDividir ? 'Sim' : 'Não'}}
+                            </td>
+                            <td>
+                                <div class="btn-bullet danger no-float" style="padding: 0px 8px" ng-click="ctrl.remove(p)" title="{{msgService.gerais.excluir()}}">
+                                    <i class="material-icons md-18">delete_forever</i>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tfoot ng-if="ctrl.grupoprodutos.length == 0">
+                        <tr>
+                            <td colspan="4"></td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

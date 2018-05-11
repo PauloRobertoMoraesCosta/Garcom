@@ -1,0 +1,1 @@
+angular.module('login', ['ngMessages', 'ui.router', 'oc.lazyLoad', 'ngConfirm']);

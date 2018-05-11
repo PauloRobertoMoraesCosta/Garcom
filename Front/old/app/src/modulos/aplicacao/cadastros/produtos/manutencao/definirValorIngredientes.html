@@ -1,0 +1,38 @@
+<div class="modal-header">
+    <div class="col-xs-12 p-0">
+        <div class="col-xs-8 p-0 pt-05">
+            <h4 class="m-0">Definir valores do adicional</h4>
+        </div>
+        <div class="col-xs-4 p-0 text-xs-right">
+            <div class="btn-bullet primary float-right" ng-click="cancelar()" title="Fechar janela"><i class="material-icons">close</i></div>
+        </div>
+    </div>
+</div>
+<div class="modal-body pb-0">
+    <p>Defina abaixo os valores para o adicional <strong>{{nomeIngrediente}}</strong>.</p>
+    <form name="frm" novalidate ng-submit="ok()">
+        <div class="table-list-box header">
+            <div class="header">
+                <div>Tamanho</div>
+                <div style="width: 140px">Valor adicional</div>
+            </div>
+            <div class="body">
+                <div ng-repeat="t in ingrediente.produtosIngredientesTamanhosValor">
+                    <div>{{t.tamanhoProdutoId | nometamanhoproduto:tamanhos}}</div>
+                    <div style="width: 140px" class="form-group">
+                        <input class="form-control" type="text" ng-model="t.valor" ui-money-mask focus="$index == 0" next-enter/>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer text-xs-left pt-1">
+            <div>
+                <small>Os tamanhos sem valor não terão opção de adicional.</small>
+            </div>
+            <div class="text-xs-right">
+                <button type="button" class="btn btn-none mr-05" ng-click="cancelar()" skip>Cancelar</button>
+                <button type="submit" class="btn btn-primary pr-1 pl-1" ng-click="ok()">Gravar</button>
+            </div>
+        </div>
+    </form>
+</div>

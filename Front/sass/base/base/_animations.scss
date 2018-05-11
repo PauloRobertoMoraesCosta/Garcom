@@ -1,0 +1,21 @@
+.animate-show-hide {
+    &.ng-hide {
+        opacity: 0;
+    }
+    
+    &.ng-hide-add, &.ng-hide-remove {
+        opacity: 1;
+        transition: all linear 0.5s;
+    }
+}
+
+.animate-show-hide-delay {
+    &.ng-hide {
+        display: none;
+    }
+    
+    &.ng-hide-add, &.ng-hide-remove {
+        display: block;
+        transition: all 0.5s linear 1s;
+    }
+}

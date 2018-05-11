@@ -1,0 +1,25 @@
+// -----------------------------------------------------------------------------
+// This file contains very basic styles.
+// -----------------------------------------------------------------------------
+
+html {
+    body {
+        
+    }
+}
+
+// Bootstrap Overrides
+@-ms-viewport{ width: auto !important; }
+
+.darkest{ color: $gray-darkest; }
+.darker{ color: $gray-darker; }
+.dark{ color: $gray-dark; }
+.gray{ color: $gray; }
+.gray-light{ color: $gray-light; }
+.gray-lighter{ color: $gray-lighter; }
+.primary{ color: $brand-primary; }
+.secondary{ color: $brand-secondary; }
+.success{ color: $brand-success; }
+.danger{ color: $brand-danger; }
+.info{ color: $brand-info; }
+.warning{ color: $brand-warning; }

@@ -1,0 +1,19 @@
+* Não permitir transferir itens entre mesas. (Melhoria)
+
+* Permitir baixar itens parcialmente de cada mesa. (Melhoria)
+
+* Ordenar os pedidos na cozinha. (Melhorias)
+
+* Gostou da ideia de arrendamento de ipressora.
+
+* Tablet na mesa depende do publico alvo.
+
+* Vai usar pizza de 2, 3 e 4 sabores.
+
+* O produto deverá ter um campo para informar o código do produto.
+
+* O sistema deverá mostrar o nome do garçom nos pedidos. (agora)
+
+* O sistema deverá mudar cor das mesas abertas e fechadas.
+
+* O sistema deverá permitir dar o pedido como entregue ao clicar no mesmo (Dar opção de desfazer)

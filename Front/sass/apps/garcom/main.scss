@@ -1,0 +1,86 @@
+@charset 'UTF-8';
+
+// 1. Configuration and helpers
+@import
+  'abstracts/variables',
+  '../../base/abstracts/functions',
+  '../../base/abstracts/mixins';
+
+// 2. Vendors
+@import
+  '../../vendor/bower_components/bootstrap/scss/bootstrap',
+  '../../vendor/bower_components/materialize/sass/components/preloader';
+
+// 3. Base stuff
+@import
+  '../../base/base/animations',
+  '../../base/base/base',
+  '../../base/base/fonts',
+  '../../base/base/helpers',
+  '../../base/base/transitions',
+  '../../base/base/typography',
+  // overrides
+  'base/base',
+  'base/typography',
+  'base/spacings';
+
+
+// 5. Components
+@import
+  // fonts
+  '../../base/components/fonts/material-icons',
+  '../../base/components/fonts/flaticons',
+  // forms
+  '../../base/components/forms/buttons',
+  '../../base/components/forms/button-group',
+  '../../base/components/forms/datepicker',
+  '../../base/components/forms/forms',
+  '../../base/components/forms/ng-file-upload',
+  '../../base/components/forms/switch',
+  '../../base/components/forms/text-angular',
+  '../../base/components/forms/tinymce',
+  // media
+  '../../base/components/media/audio',
+  '../../base/components/media/img',
+  '../../base/components/media/slick-slider',
+  // other
+  '../../base/components/accordion',
+  '../../base/components/breadcrumb',
+  '../../base/components/card',
+  '../../base/components/modal',
+  '../../base/components/popover',
+  '../../base/components/spinner',
+  '../../base/components/splash-screen',
+  '../../base/components/tables',
+  '../../base/components/tags',
+  '../../base/components/tooltip',
+  '../../base/components/ngToast',
+  '../../base/components/btn-bullet',
+  '../../base/components/list-box',
+  '../../base/components/expand-box',
+  '../../base/components/btn-select',
+  // project specific
+  'components/alert',
+  'components/breadcrumb',
+  'components/card',
+  'components/close',
+  'components/custom-icons',
+  'components/forms/dropdown',
+  'components/forms/forms',
+  'components/forms/input-group',
+  'components/forms/tinymce',
+  'components/list',
+  'components/list-group',
+  'components/modal',
+  'components/menu-bar',
+  'components/tables',
+  'components/tags';
+
+// 6. Page-specific styles
+@import
+  'pages/login',
+  'pages/principal';
+
+// 7. Themes
+@import
+  'themes/login';

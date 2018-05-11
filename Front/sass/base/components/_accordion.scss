@@ -1,0 +1,42 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the accordion.
+// -----------------------------------------------------------------------------
+
+.accordion {
+    // Accordion padrão
+    &-default {
+        // Grupo de painéis
+        .panel-group {
+            // Painel
+            .panel {
+                margin-top: 1rem;
+                &:first-child { margin-top: 0; }
+                
+                // Cabeçalho do painel
+                .panel-heading {
+                    background: $gray-lightest;
+                    cursor: pointer;
+                    margin-bottom: .5rem;
+                    
+                    // Título do cabeçalho
+                    .panel-title {
+                        font-size: 1rem;
+                        margin-bottom: 0;
+                        
+                        // Link
+                        .accordion-toggle {
+                            display: block;
+                            padding: .5rem;
+                            text-decoration: none;
+                        }
+                    }
+                }
+                
+                // Corpo do painel
+                .panel-collapse {
+                    
+                }
+            }
+        }
+    }
+}

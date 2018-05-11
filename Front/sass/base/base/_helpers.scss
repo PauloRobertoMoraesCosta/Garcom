@@ -1,0 +1,343 @@
+// -----------------------------------------------------------------------------
+// This file contains CSS helper classes.
+// Classificar em categorias e ordenar alfabeticamente para facilitar busca.
+// -----------------------------------------------------------------------------
+
+/* Backgrounds ---------------------------------------------------------------*/
+.bg-{
+    &secondary { background: $brand-secondary !important; }
+    &black { background: #000000 !important; }
+    &white { background: #ffffff !important; }
+    &light { background: $gray-light !important; }
+    &lighter { background: $gray-lighter !important; }
+    &lightest { background: $gray-lightest !important; }
+    &dark { background: $gray !important; }
+    &warning { background: $brand-warning; }
+    &primary-light { background: lighten($brand-primary, 58%) !important; }
+    &item-active { background: $bg-item-active !important; }
+}
+
+.hover {
+    /* Fundo escurecido */
+    &-bg-dark:hover { background: rgba(0, 0, 0, 0.1); }
+}
+
+/* Font / Text ---------------------------------------------------------------*/
+.primary { color: $brand-primary !important; }
+.secondary { color: $brand-secondary !important; }
+.danger { color: $brand-danger !important; }
+.info { color: $brand-info !important; }
+.success { color: $brand-success !important; }
+.warning { color: $brand-warning !important; }
+.gray-darkest { color: $gray-darkest !important; }
+.gray-darker { color: $gray-darker !important; }
+
+.bold { font-weight: bold; }
+
+.faded { color: #aaa; }
+
+.hover-{
+    &text-bold:hover { font-weight: 600 !important; }
+    &text-normal:hover { font-weight: normal !important; }
+    &text-underline:hover { text-decoration: underline !important; }
+    &text-shadow-white:hover {
+        text-shadow: 0 0 2px $corTexto;
+        @extend .transicao-padrao;
+    }
+}
+
+.text {
+    /* Cores */
+    &-black { color: $corTextoDark !important; }
+    &-placeholder { color: $corTextoPlaceholder !important; }
+    &-white { color: #fff !important; }
+    &-masculino { color: $cor-masculino !important; }
+    &-feminino { color: $cor-feminino !important; }
+    &-disabled { color: rgba(0, 0, 0, 0.54) !important; }
+    /* Comportamento */
+    &-bold { font-weight: bold; }
+    &-decoration-none { text-decoration: none !important; }
+    /* Tamanho */
+    &-small { font-size: $small-font-size; }
+}
+
+.upper { text-transform: uppercase; }
+
+/* Overflow ------------------------------------------------------------------*/
+.fluid-ellipsis-container {
+    display: table;
+    table-layout: fixed;
+    width: 100%;
+}
+
+.fluid-ellipsis-content {
+    display: table-cell;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+
+.noScroll {
+    overflow: hidden !important;
+}
+
+/* Events --------------------------------------------------------------------*/
+.cursor-{
+    &text { cursor: text !important; }
+}
+
+.not-active {
+    cursor: default !important;
+    pointer-events: none !important;
+}
+
+.pointer, *[ng-click], *[ui-sref] {
+    cursor: pointer;
+}
+
+.resize-none {
+    resize: none;
+}
+
+/* Margin / Padding / Border -------------------------------------------------*/
+@each $prop, $abbrev in (margin: m, padding: p) {
+    @each $size, $lengths in ('05': (x: $spacer-x / 2, y: $spacer-y / 2) ) {
+        $length-x:   map-get($lengths, x);
+        $length-y:   map-get($lengths, y);
+
+        .#{$abbrev}-#{$size} { #{$prop}:        $length-y $length-x !important; } // a = All sides
+        .#{$abbrev}t-#{$size} { #{$prop}-top:    $length-y !important; }
+        .#{$abbrev}r-#{$size} { #{$prop}-right:  $length-x !important; }
+        .#{$abbrev}b-#{$size} { #{$prop}-bottom: $length-y !important; }
+        .#{$abbrev}l-#{$size} { #{$prop}-left:   $length-x !important; }
+
+        // Axes
+        .#{$abbrev}x-#{$size} {
+            #{$prop}-right:  $length-x !important;
+            #{$prop}-left:   $length-x !important;
+        }
+        .#{$abbrev}y-#{$size} {
+            #{$prop}-top:    $length-y !important;
+            #{$prop}-bottom: $length-y !important;
+        }
+    }
+}
+
+.border-{
+    &top { border-top: 1px solid $border-color !important; }
+    &right { border-right: 1px solid $border-color !important; }
+    &bottom { border-bottom: 1px solid $border-color !important; }
+    &left { border-left: 1px solid $border-color !important; }
+    &none { border: none !important; }
+}
+
+.b{
+    &x-0{border-right:0px !important; border-left:0px !important;}
+    &y-0{border-top:0px !important; border-bottom:0px !important;}
+    &l-0{border-left:0px !important;}
+    &r-0{border-right:0px !important;}
+    &t-0{border-top:0px !important;}
+    &b-0{border-bottom:0px !important;}
+}
+
+/* Components ----------------------------------------------------------------*/
+.box-shadow {
+    -webkit-box-shadow: 0px 0px 6px 1px rgba(0,0,0,0.2);
+    -moz-box-shadow: 0px 0px 6px 1px rgba(0,0,0,0.2);
+    box-shadow: 0px 0px 6px 1px rgba(0,0,0,0.2);
+}
+
+.hover-box-shadow:hover {
+    -webkit-box-shadow: 0px 0px 6px 1px rgba(0,0,0,0.3);
+    -moz-box-shadow: 0px 0px 6px 1px rgba(0,0,0,0.3);
+    box-shadow: 0px 0px 6px 1px rgba(0,0,0,0.3);
+    @extend .transicao-padrao;
+}
+
+.division {
+    border: none;
+    border-bottom: 1px solid $corTextoPlaceholder;
+
+    &-light {
+        border-bottom: 1px solid $bg-light;
+    }
+}
+
+/* Size ----------------------------------------------------------------------*/
+.full-width {
+    width: 100%;
+}
+
+/* Display -------------------------------------------------------------------*/
+.d-{
+    &inline-flex { display: inline-flex; }
+    &table { display: table; }
+    &table-cell { display: table-cell; }
+    &table-footer-group { display: table-footer-group; }
+}
+
+/* Align / Rotate ------------------------------------------------------------*/
+.rotate90 {
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    transform: rotate(90deg);
+}
+
+.rotateY180 {
+    -webkit-transform: rotateY(180deg);
+    -moz-transform: rotateY(180deg);
+    -o-transform: rotateY(180deg);
+    -ms-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+}
+
+.va {
+    position: relative;
+    @extend .transicao-resize;
+
+    &-middle {
+        vertical-align: middle !important;
+        &:before { vertical-align: middle !important; }
+    }
+    &-top {
+        vertical-align: top !important;
+    }
+    &-bottom {
+        vertical-align: bottom !important;
+    }
+
+    &.va-xs-t{
+        transform: translateY(0%);
+        -webkit-transform: translateY(0%);
+
+        &.loginForm{
+            transform: translateY(7%);
+            -webkit-transform: translateY(7%);
+        }
+    }
+
+    &.va-xs-m{
+        /*transform: translateY(15%);
+        -webkit-transform: translateY(15%);*/
+        transform: translateY(81px);
+        -webkit-transform: translateY(81px);
+
+        @media (min-aspect-ratio: 16/9) {
+            /*transform: translateY(5%);
+            -webkit-transform: translateY(5%);*/
+            transform: translateY(27px);
+            -webkit-transform: translateY(27px);
+        }
+    }
+
+    @media (min-width: 48em) {//sm
+        &.va-sm-t{
+            margin-bottom: 1rem;
+            transform: translateY(0%);
+            -webkit-transform: translateY(0%);
+        }
+
+        &.va-sm-m, &.va-xs-m, &.va-sm-m.loginForm, &.va-xs-m.loginForm{
+            margin-bottom: 1rem;
+            transform: translateY(81px);
+            -webkit-transform: translateY(81px);
+
+            @media (min-aspect-ratio: 16/9) {
+                margin-bottom: 1rem;
+                transform: translateY(27px);
+                -webkit-transform: translateY(27px);
+            }
+        }
+    }
+    @media (min-width: 62em) {//md
+        &.va-md-t{
+            margin-bottom: 1rem;
+            transform: translateY(0%);
+            -webkit-transform: translateY(0%);
+        }
+
+        &.va-md-m, &.va-sm-m, &.va-xs-m, &.va-md-m.loginForm, &.va-sm-m.loginForm, &.va-xs-m.loginForm{
+            margin-bottom: 1rem;
+            transform: translateY(135px);
+            -webkit-transform: translateY(135px);
+
+            @media (min-aspect-ratio: 16/9) {
+                margin-bottom: 1rem;
+                transform: translateY(27px);
+                -webkit-transform: translateY(27px);
+            }
+        }
+    }
+    @media (min-width: 75em) {//lg
+        &.va-lg-t{
+            margin-bottom: 1rem;
+            transform: translateY(0%);
+            -webkit-transform: translateY(0%);
+        }
+
+        &.va-lg-m, &.va-md-m, &.va-sm-m, &.va-xs-m, &.va-lg-m.loginForm, &.va-md-m.loginForm, &.va-sm-m.loginForm, &.va-xs-m.loginForm{
+            margin-bottom: 1rem;
+            /*transform: translateY(25%);
+            -webkit-transform: translateY(25%);*/
+            transform: translateY(135px);
+            -webkit-transform: translateY(135px);
+
+            @media (min-aspect-ratio: 16/9) {
+                margin-bottom: 1rem;
+                transform: translateY(27px);
+                -webkit-transform: translateY(27px);
+            }
+        }
+    }
+    @media (min-width: 76em) {//xg
+        &.va-xg-t{
+            margin-bottom: 1rem;
+            transform: translateY(0%);
+            -webkit-transform: translateY(0%);
+        }
+
+        &.va-xg-m, &.va-lg-m, &.va-md-m, &.va-sm-m, &.va-xs-m, &.va-xg-m.loginForm, &.va-lg-m.loginForm, &.va-md-m.loginForm, &.va-sm-m.loginForm, &.va-xs-m.loginForm{
+            margin-bottom: 1rem;
+            transform: translateY(135px);
+            -webkit-transform: translateY(135px);
+
+            @media (min-aspect-ratio: 16/9) {
+                margin-bottom: 1rem;
+                transform: translateY(27px);
+                -webkit-transform: translateY(27px);
+            }
+        }
+    }
+}
+
+/* POSITIONS --------------------------------------------------------------------*/
+.pos-{
+    &absolute{ position: absolute !important; }
+    &fixed{ position: fixed !important; }
+    &inherit{ position: inherit !important; }
+    &relative{ position: relative !important; }
+    &static{ position: static !important; }
+    &initial{ position: initial !important; }
+}
+
+/* DISPLAY --------------------------------------------------------------------*/
+.dis-{
+    &inline{ display: inline !important; }
+    &table{ display: table !important; }
+    &inline-table{ display: inline-table !important; }
+    &table-cell{ display: table-cell !important; }
+    &block{ display: block !important; }
+    &inline-block{ display: inline-block !important; }
+    &inherit{ display: inherit !important; }
+    &none{ display: none !important; }
+}
+
+/* FLOAT --------------------------------------------------------------------*/
+.float-{
+    &left{ float: left !important; }
+    &right{ float: right !important; }
+    &none{ float: none !important; }
+}

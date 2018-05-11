@@ -1,0 +1,91 @@
+<breadcrumb ng-model="breadcrumb"></breadcrumb>
+<div class="card scroll" ng-init="ctrl.initManutencao()" ng-style="styleCardBody">
+    <div class="card-body">
+        <div ng-if="onRequest" class="circular-loader">
+            <div></div>
+        </div>
+
+        <div class="col-xs-12 pt-1 pb-1 pl-sm-1 pr-sm-1 pl-xs-0 pr-xs-0" style="{{'max-width: ' + widthContent + 'px'}}" ng-if="!onRequest">
+            <h4 class="m-0 pb-1 pl-1 pr-1">{{ctrl.usuario.id == 0 ? 'Cadastro' : 'Alteração'}} de Usuários</h4>
+
+            <div class="col-xs-12 p-0">
+                <form name="frm" novalidate ng-submit="ctrl.salvar()">
+                    <!--Usuario-->
+                    <div class="col-xs-12 form-group" ng-class="{'has-danger': frm.login.$invalid && frm.$submitted, 'has-success': !frm.login.$invalid && frm.$submitted}"
+                        style="max-width: 200px">
+                        <label>Usuário*</label>
+                        <input class="form-control" type="text" name="login" maxlength="20" ng-model="ctrl.usuario.login" ng-disabled="ctrl.usuario.id > 0" focus="ctrl.usuario.id == 0" next-enter required/>
+                        <div ng-messages="frm.login.$error" ng-if="frm.login.$invalid && frm.$submitted">
+                            <div ng-messages-include="error-messages"></div>
+                        </div>
+                    </div>
+                    <!--Nome-->
+                    <div class="col-xs-12 form-group" ng-class="{'has-danger': frm.nome.$invalid && frm.$submitted, 'has-success': !frm.nome.$invalid && frm.$submitted}">
+                        <label>Nome*</label>
+                        <input class="form-control" type="text" name="nome" maxlength="100" ng-model="ctrl.usuario.nome" focus="ctrl.usuario.id > 0" next-enter required/>
+                        <div ng-messages="frm.nome.$error" ng-if="frm.nome.$invalid && frm.$submitted">
+                            <div ng-messages-include="error-messages"></div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 p-0">
+                        <!--Senha-->
+                        <div class="col-xs-12 col-sm-6 form-group" ng-class="{'has-danger': !ctrl.validaSenha() && frm.$submitted, 'has-success': ctrl.validaSenha() && frm.$submitted}">
+                            <label>{{(ctrl.usuario.id > 0 ? 'Senha' : 'Senha*')}}</label>
+                            <input class="form-control" type="password" name="senha" maxlength="10" ng-model="ctrl.usuario.senha" next-enter/>
+                            <div ng-if="ctrl.usuario.id == 0 || (ctrl.usuario.senha && ctrl.usuario.senha != '')" class="ng-active">
+                                <span ng-class="{'danger': !ctrl.validacaoSenha.maiusculo, 'success': ctrl.validacaoSenha.maiusculo}">1 caracter maísculo</span>
+                                <br/>
+                                <span ng-class="{'danger': !ctrl.validacaoSenha.numero, 'success': ctrl.validacaoSenha.numero}">1 número</span>
+                                <br/>
+                                <span ng-class="{'danger': !ctrl.validacaoSenha.seis, 'success': ctrl.validacaoSenha.seis}">Mínimo 6 carateres</span>
+                            </div>
+                        </div>
+                        <!--Confirmação da senha-->
+                        <div class="col-xs-12 col-sm-6 form-group" ng-class="{'has-danger': !ctrl.validaConfirmacaoSenha() && frm.$submitted, 'has-success': ctrl.validaConfirmacaoSenha() && frm.$submitted}">
+                            <label>{{(ctrl.usuario.id > 0 ? 'Confirmação de senha' : 'Confirmação de senha*')}}</label>
+                            <input class="form-control" type="password" name="confirmacaoSenha" maxlength="10" ng-model="ctrl.usuario.confirmacaoSenha" next-enter/>
+                            <div ng-if="ctrl.usuario.id == 0 || (ctrl.usuario.senha && ctrl.usuario.senha != '')" class="ng-active">
+                                <span ng-class="{'danger': !ctrl.validaConfirmacaoSenha(), 'success': ctrl.validaConfirmacaoSenha()}">Confirmação de senha</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 p-0">
+                        <!--Perfil-->
+                        <div class="col-xs-12 col-sm-6 form-group" ng-class="{'has-danger': frm.perfilId.$invalid && frm.$submitted, 'has-success': !frm.perfilId.$invalid && frm.$submitted}">
+                            <label>Perfil*</label>
+                            <select class="form-control" type="text" name="perfilId" ng-model="ctrl.usuario.perfilId" ng-options="p.id as p.descricao for p in ctrl.perfis" next-enter required>
+                                <option ng-value="null">-- Selecionar --</option>
+                            </select>
+                            <div ng-messages="frm.perfilId.$error" ng-if="frm.perfilId.$invalid && frm.$submitted">
+                                <div ng-messages-include="error-messages"></div>
+                            </div>
+                        </div>
+                        <!--Ativo-->
+                        <div class="col-xs-5 col-sm-3 pt-1 form-group" ng-if="ctrl.usuario.id > 0">
+                            <checkbox left center ng-model="ctrl.usuario.ativo" checked-value="true" unchecked-value="false" multiselect="false" name="ativo" disabled="loading">
+                                Ativo
+                            </checkbox>
+                        </div>
+                        <!--Data de cadastro-->
+                        <div class="form-group pl-0" ng-if="ctrl.usuario.id > 0" ng-class="{'col-xs-12 col-sm-6': ctrl.usuario.id == 0, 'col-xs-7 col-sm-3' : ctrl.usuario.id > 0}">
+                            <div class="float-right">
+                                <label>Data de cadastro</label>
+                                <div>
+                                    <strong>{{ctrl.usuario.dataCadastro|data}}</strong>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 p-1 pb-0 text-xs-right">
+                        <button type="button" class="btn btn-none" ui-sref="principal.cadastros.usuarios.listar" ng-disabled="loading" skip>
+                            Cancelar
+                        </button>
+                        <button class="btn btn-primary mr-05 pl-2 pr-2" type="submit" ng-disabled="loading || (frm.$submitted && frm.$invalid)">
+                            {{loading ? 'Aguarde...' : (ctrl.usuario.id > 0 ? 'Alterar' : 'Cadastrar')}}
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

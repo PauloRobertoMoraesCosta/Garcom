@@ -1,0 +1,33 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the slick carousel.
+// -----------------------------------------------------------------------------
+
+.slick-slider {
+    margin-left: 35px;
+    margin-right: 35px;
+    
+    .slick-prev, .slick-next {
+        &:before {
+            color: $bg-dark-blue;
+        }
+    }
+    
+    .slick-list {
+        .slick-track {
+            .slick-slide {
+                height: 200px;
+                max-height: 200px !important;
+                max-width: 200px !important;
+                padding: 10px;
+                width: 200px;
+                
+                &.imagem, &.video {
+                    i {
+                        background: rgba(255,255,255,.7);
+                        padding: 0 2px;
+                    }
+                }
+            }
+        }
+    }
+}

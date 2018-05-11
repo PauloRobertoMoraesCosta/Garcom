@@ -1,0 +1,25 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the breadcrumb.
+// -----------------------------------------------------------------------------
+
+.breadcrumb {
+    background-color: transparent;
+    margin: 0;
+    padding: 1rem;
+
+    .breadcrumb-item {
+        a {
+            text-decoration: none;
+
+            &.unlinked{
+                cursor: default;
+                color: $gray-darker !important;
+            }
+        }
+
+        &.hide-separator {
+            &::before { content: ""; padding: 0; }
+            &-xs::before { @include media-breakpoint-down(xs) { content: ""; } }
+        }
+    }
+}

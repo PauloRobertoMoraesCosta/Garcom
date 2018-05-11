@@ -1,0 +1,1 @@
+angular.module('principal', ['ui.router', 'oc.lazyLoad', 'ngAnimate', 'ngSanitize', 'ngToast', 'ngConfirm', 'ngMessages']);

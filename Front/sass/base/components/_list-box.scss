@@ -1,0 +1,120 @@
+.list-box{
+    width: 100%;
+    box-sizing: border-box;
+    min-height: 130px;
+    max-height: 180px;
+    overflow-y: auto;
+    border: 1px #CCC solid;
+    border-radius: 3px;
+
+    > div{
+        padding: 5px 10px;
+        font-size: 14px;
+        font-weight: bold;
+    }
+
+    > div:last-child{
+        border-radius: 2px 2px 0 0;
+    }
+
+    > div:first-child{
+        border-radius: 2px 0 2px 0;
+    }
+
+    &.no-border{
+        border: none;
+    }
+}
+
+.table-list-box{
+    width: 100%;
+    box-sizing: border-box;
+    min-height: 130px;
+    max-height: 250px;
+    overflow-y: auto;
+    border: 1px #CCC solid;
+    border-radius: 3px;
+    display: table;
+    font-size: 1rem;
+
+    > div{
+        display: table-cell;
+        vertical-align: middle;
+        box-sizing: border-box;
+        padding: 5px;
+        border: 1px #DDD solid;
+    }
+
+    > div:last-child{
+        border-radius: 2px 2px 0 0;
+        border: none;
+    }
+
+    > div:first-child{
+        border-radius: 2px 0 2px 0;
+    }
+
+    &.header{
+        min-height: 0;
+        max-height: none;
+
+        > .header{
+            position: relative;
+            z-index: 10;
+            display: table;
+            width: 100%;
+            padding: 0;
+            border: none;
+            background: #FAFAFA;
+            height: 35px;
+            border-radius: 3px 3px 0 0;
+            box-shadow: 0 3px 4px rgba(0,0,0,.2);
+
+            > div{
+                display: table-cell;
+                vertical-align: middle;
+                box-sizing: border-box;
+                padding: 5px 8px;
+                font-weight: bold;
+                font-size: 1rem;
+            }
+        }
+
+        > .body{
+            min-height: 130px;
+            max-height: 250px;
+            overflow-y: auto;
+            display: block;
+            width: 100%;
+            padding: 5px 0 5px 0;
+            border: none;
+            background: transparent;
+            border-radius: 0 0 3px 3px;
+
+            > div{
+                display: table;
+                width: 100%;
+                padding: 0;
+                border: none;
+                background: #FFF;
+                min-height: 28px;
+                border-bottom: 1px #CCC solid;
+
+                &:last-child{
+                    border: none;
+                }
+
+                > div{
+                    display: table-cell;
+                    vertical-align: middle;
+                    box-sizing: border-box;
+                    padding: 5px 8px;
+
+                    input{
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,47 @@
+.transicao-padrao {
+    transition: all 0.5s, z-index 0.5s step-start;
+    -webkit-transition: all 0.5s, z-index 0.5s step-start;
+    -o-transition: all 0.5s, z-index 0.5s step-start;
+    -moz-transition: all 0.5s, z-index 0.5s step-start;
+    -webkit-transition-delay: 0s;
+    transition-delay: 0s;
+}
+
+.transicao-padrao-2 {
+    transition: all 1s, z-index 1s step-start;
+    -webkit-transition: all 1s, z-index 1s step-start;
+    -o-transition: all 1s, z-index 1s step-start;
+    -moz-transition: all 1s, z-index 1s step-start;
+    -webkit-transition-delay: 0.3s;
+    transition-delay: 0.3s;
+}
+
+.transicao-resize {
+    transition: all .3s, z-index .3s step-start;
+    -webkit-transition: all .3s, z-index .3s step-start;
+    -o-transition: all .3s, z-index .3s step-start;
+    -moz-transition: all .3s, z-index .3s step-start;
+    -webkit-transition-delay: 0s;
+    transition-delay: 0s;
+}
+
+.transicao-switch {
+    transition:all ease-in 0.4s;
+    -webkit-transition:all ease-in 0.4s;
+    -o-transition:all ease-in 0.4s;
+    -moz-transition:all ease-in 0.4s;
+}
+
+.transicao-width {
+    transition: width 0.5s;
+    -webkit-transition: width 0.5s;
+    -o-transition: width 0.5s;
+    -moz-transition: width 0.5s;
+}
+
+.transicao-background {
+    transition: background 1s;
+    -webkit-transition: background 1s;
+    -o-transition: background 1s;
+    -moz-transition: background 1s;
+}

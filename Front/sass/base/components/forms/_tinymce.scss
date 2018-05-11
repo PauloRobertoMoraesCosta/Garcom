@@ -1,0 +1,31 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the tiny-mce.
+// -----------------------------------------------------------------------------
+
+.mce-tinymce.mce-container.mce-panel {
+    .mce-container-body.mce-stack-layout {
+        // Menu
+        .mce-container.mce-menubar.mce-toolbar.mce-stack-layout-item.mce-first {
+        }
+        // Toolbar
+        .mce-toolbar-grp.mce-container.mce-panel.mce-stack-layout-item {
+            @include media-breakpoint-up(sm){
+                .mce-container.mce-flow-layout-item.mce-last.mce-btn-group {
+                    float: right;
+                }
+            }
+        }
+        // Edit Area
+        .mce-edit-area.mce-container.mce-panel.mce-stack-layout-item {
+            border-width: 1px 1px 0 0 !important;
+        }
+        // Status Bar
+        .mce-statusbar.mce-container.mce-panel.mce-stack-layout-item.mce-last {
+        }
+    }
+}
+
+.mce-content-body {
+    overflow-x: hidden;
+    overflow-y: auto;
+}

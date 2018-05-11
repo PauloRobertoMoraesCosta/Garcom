@@ -1,0 +1,1 @@
+angular.module('garcom', ['ui.bootstrap', 'ngCookies', 'ngAnimate', 'ngSanitize', 'ngToast', 'ui.utils.masks', 'ngConfirm', 'ngMessages']);

@@ -1,5 +1,0 @@
-E:\OneDrive\Arquivos\Gracom\Codificacao\Garcom\Garcon.Dominio\bin\Release\Garcon.Dominio.dll
-E:\OneDrive\Arquivos\Gracom\Codificacao\Garcom\Garcon.Dominio\bin\Release\Garcon.Dominio.pdb
-E:\OneDrive\Arquivos\Gracom\Codificacao\Garcom\Garcon.Dominio\obj\Release\Garcom.Dominio.csprojResolveAssemblyReference.cache
-E:\OneDrive\Arquivos\Gracom\Codificacao\Garcom\Garcon.Dominio\obj\Release\Garcon.Dominio.dll
-E:\OneDrive\Arquivos\Gracom\Codificacao\Garcom\Garcon.Dominio\obj\Release\Garcon.Dominio.pdb

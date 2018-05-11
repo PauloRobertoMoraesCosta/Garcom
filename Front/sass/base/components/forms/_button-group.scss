@@ -1,0 +1,11 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the button-group.
+// -----------------------------------------------------------------------------
+
+.btn-group {
+    .btn {
+        border: 1px solid $border-color;
+        
+        &.disabled { color: $disabled-color; }
+    }
+}

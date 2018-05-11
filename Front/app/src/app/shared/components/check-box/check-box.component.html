@@ -1,0 +1,10 @@
+<div [ngStyle]="css" class="{{class}}" [ngClass]="ngClass">
+    <div style="display: table-cell; vertical-align: middle">
+        <div [ngStyle]="{'cursor': disabled ? 'not-allowed' : 'pointer', 'display': 'table', 'margin': (center ? 'auto' : '0')}" (click)="!disabled && onToggle()">
+            <i [ngClass]="{'primary': !disabled}" class="material-icons" style="transition-duration: .3s" [ngStyle]="{'color': disabled ? '#999' : 'inherit'}">
+                {{checked ? 'check_box' : 'check_box_outline_blank'}}
+            </i>
+            &nbsp;<label [ngStyle]="{'cursor': (disabled ? 'normal' : 'pointer')}" style="font-size: 14px"><ng-content></ng-content></label>
+        </div>
+    </div>
+</div>

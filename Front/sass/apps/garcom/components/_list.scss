@@ -1,0 +1,274 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the list (custom).
+// -----------------------------------------------------------------------------
+
+.list {
+    list-style-type: none;
+    margin: 0px;
+    padding: 0px;
+    
+    &.list-inline {
+        li {
+            display: inline-block;
+        }
+    }
+    
+    &-primary {
+        li {
+            background: $brand-primary;
+            margin: 1px 0;
+            padding: 1.5rem;
+
+            a {
+                color: $corTexto;
+                display: block;
+                font-size: $font-size-h4;
+                text-decoration: none;
+
+                i {
+                    vertical-align: middle;
+                }
+            }
+
+            &:hover, &:focus {
+                background: darken($brand-primary, 7%);
+                outline: none;
+            }
+        }
+
+        &.list-primary-inline {
+            background: $brand-primary;
+
+            li {
+                display: inline-block;
+                margin: 0 0 0 -4px;
+                padding: .8rem 2rem;
+
+                a {
+                    font-size: 1rem;
+                }
+
+                &.active {
+                    background: darken($brand-primary, 7%);
+                    border-left: 1px solid $bg-dark-blue;
+                    border-right: 1px solid $bg-dark-blue;
+
+                    &:first-child {
+                        border-left: none;
+                    }
+
+                }
+
+                &:first-child {
+                    margin-left: 0px;
+                }
+
+                &:last-child {
+                    margin-left: -5px;
+                }
+            }
+        }
+    }
+    
+    &-registros {
+        .item-registros {
+            border-radius: 1rem;
+            color: $corTexto;
+            cursor: pointer;
+            display: inline-block;
+            height: 95px;
+            line-height: 1;
+            margin: .5rem;
+            padding: .5rem;
+            text-align: center;
+            vertical-align: middle;
+            width: 105px;
+
+            .opcoes{
+                position: absolute;
+                padding-left: 72px;
+
+                i{
+                    color: #FFFFFF;
+                }
+            }
+
+            h1 {
+                color: $corTexto;
+                margin-bottom: 0px;
+            }
+
+            span {
+                font-size: 11px;
+                text-transform: uppercase;
+            }
+        }
+    }
+    
+    &-files {
+        li {
+            padding: .5rem;
+            border-bottom: 1px solid $border-color;            
+
+            &:first-child {
+                border-top: 1px solid $border-color;
+            }
+        }
+
+        &.error {
+            li {
+                border-bottom: none;
+                padding: .1rem .5rem;
+
+                .helper {
+                    color: $corTextoPlaceholder !important;
+                }
+
+                &:first-child {
+                    border-top: none;
+                }
+            }
+        }
+        
+        &.border-none {
+            li {
+                border-bottom: none;
+                
+                &:first-child {
+                    border-top: none;
+                }
+            }
+        }
+    }
+    
+    &-clinicas {
+        color: $corTextoDark;
+        
+        .clinicas-item {
+            border: 1px solid $gray-light;
+            margin-bottom: 1rem;
+
+            .item-header {
+                background: $gray-lighter;
+                color: $corTextoDark;
+                padding: .5rem;
+
+                a {
+                    font-size: .85rem;
+                    padding: .15rem 0;
+                    text-decoration: none;
+                }
+            }
+
+            .item-body {
+                margin: 0px;
+                padding: .4rem .5rem;
+
+                .pendencia {
+                    background: #fff;
+                    padding: .5rem 0;
+                    @extend .division-light;
+                    @extend .transicao-padrao;
+                    @extend .transicao-background;
+                    
+                    &:last-child { border-bottom: none !important; }
+
+                    a {
+                        cursor: pointer;
+                        font-size: .90rem;
+                        padding: .2rem 0;
+                    }
+
+                    .img-pointer {
+                        height: 75px;
+                        width: 75px;
+
+                        @include media-breakpoint-down(sm) {
+                            height: 55px !important;
+                            width: 55px !important;
+                        }
+
+                        @include media-breakpoint-down(xs) {
+                            height: 50px !important;
+                            width: 50px !important;
+                        }
+                    }
+
+                    .pergunta {
+                        font-size: .75rem;
+                    }
+
+                    .action-row {
+                        max-height: 50px;
+
+                        &.help {
+                            text-align: left;
+                            padding: 4px 0;
+                        }
+                    }
+                }
+            }
+
+            &.adm-clinica {
+                border: none;
+                margin-bottom: 0px !important;
+
+                .item-body {
+                    .pendencia {
+                        .img-container{
+                            @include media-breakpoint-down(sm) {
+                                height: 55px !important;
+                                width: 55px !important;
+                            }
+
+                            @include media-breakpoint-down(xs) {
+                                height: 50px !important;
+                                width: 50px !important;
+                            }
+                        }
+                        
+                        .desassociar {
+                            display: table;
+                            min-height: 66px;
+                            text-align: center;
+
+                            a {
+                                display: table-cell;
+                                text-decoration: none;
+                                vertical-align: middle;
+
+                                .btn {
+                                    border-radius: 0px;
+                                    padding: 2px 5px 3px 5px;
+                                    font-size:12px;
+                                    //@extend .box-shadow;
+
+                                    &:hover {
+                                        i {
+                                            //@extend .text-shadow-white;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    &.list-indicacoes{
+        li{
+            padding:1rem;
+            color: $disabled-color;
+            
+            &.active{
+                color:$corTextoDark;
+                
+                i{
+                    color:$brand-success;
+                }
+            }
+        }
+    }
+}

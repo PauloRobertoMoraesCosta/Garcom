@@ -1,0 +1,16 @@
+<div ng-style="css" class="{{class}}" ng-class="ngClass">
+    <div style="display: table-cell; vertical-align: middle">
+        <div ng-if="!disabled" style="display: table; margin: auto" ng-click="ctrl.toggleCheck()">
+            <i class="material-icons md-24 primary" style="transition-duration: .3s">
+                {{checked ? 'radio_button_checked' : 'radio_button_unchecked'}}
+            </i>
+            <label style="cursor: pointer;" ng-transclude></label>
+        </div>
+        <div ng-if="disabled" style="display: table; margin: auto; cursor: not-allowed">
+            <i class="material-icons md-24" style="transition-duration: .3s; color: #999">
+                {{checked ? 'radio_button_checked' : 'radio_button_unchecked'}}
+            </i>
+            <label ng-transclude></label>
+        </div>
+    </div>
+</div>

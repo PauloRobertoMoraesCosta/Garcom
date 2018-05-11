@@ -1,0 +1,19 @@
+<breadcrumb ng-model="breadcrumb"></breadcrumb>
+<div class="card scroll" ng-style="styleCardBody">
+    <div class="card-body">
+        <spinner ng-if="onRequest"></spinner>
+        <div class="col-xs-12 col-sm-12 col-md-10 col-lg-9 col-xl-12 p-1" ng-if="!onRequest">
+            <h4 class="m-0 pb-1">Relação de mesas</h4>
+
+            <div>
+                Visualizar: <btn-select ng-itens="ctrl.itensMenu" selected="ctrl.itemSelecionado"></btn-select>
+            </div>
+
+            <div class="grupo-card-mesas">
+                <div class="card-mesa" ng-repeat="mesa in mesas">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

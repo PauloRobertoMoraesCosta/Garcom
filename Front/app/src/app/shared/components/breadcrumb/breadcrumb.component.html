@@ -1,0 +1,11 @@
+<div class="card" style="border-right: none; border-bottom: none;">
+    <div class="card-body p-0">
+        <div class="breadcrumb">
+            <div class="breadcrumb-item" *ngFor="let bread of model">
+                <a *ngIf="bread.url != null && bread.url != ''" [href]="bread.url" [innerHtml]="bread?.nome"></a>
+                <span *ngIf="bread.url == null || bread.url == ''" [innerHtml]="bread?.nome"></span>
+            </div>
+
+        </div>
+    </div>
+</div>

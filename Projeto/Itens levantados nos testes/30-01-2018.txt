@@ -1,0 +1,27 @@
+
+*Produtos
+
+Erros na inclusão
+- Ao clicar em cadastrar novo, o texto que aparece é diferente da especificação (Front)
+	"Ao clicar no botão "Cadastrar novo" o sistema deverá exibir a tela "Produtos - Cadastrar""
+
+Erros na alteração
+- Ao clicar para alterar um produto, o texto que aparece é diferente da especificação:(front)
+	"Ao clicar em algum produto o sistema deverá exibir a tela "Produtos - Alterar" "
+(PRECISA CORRIGIR) - Após definir os valores para os tamanhos do produto e entrar no cadastro de tamanhos e modificar a ordem, ao voltar no cadastro de produtos e clicar em definir valores, a ordem mostrada continua sendo a ordem anterior. A mesma situação acontece com o botão definir valores dos ingredientes. (investigar front e back)
+
+(PRECISA CORRIGIR) - Está permitindo informar um valor para o código rápido que já foi utilizado em outro produto. (back)
+
+Erros na exclusão
+- A mensagem que aparece na exclusão é diferente da especificação: (Front)
+	"Exclui o produto com sucesso. Desfazer"
+
+
+
+*Grupo de Produtos:
+
+Erros na alteração
+OK - O sistema não exibe mensagem alertando sobre o uso de um tamanho em um produto quando este tamanho é substituído/removido do grupo.
+
+
+

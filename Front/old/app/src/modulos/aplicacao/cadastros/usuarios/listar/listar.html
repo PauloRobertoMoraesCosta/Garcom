@@ -1,0 +1,110 @@
+<breadcrumb ng-model="breadcrumb"></breadcrumb>
+<div class="card scroll" ng-style="styleCardBody" ng-init="ctrl.initListar()">
+    <div class="card-body">
+        <spinner ng-if="onRequest"></spinner>
+
+        <div class="col-xs-12 col-sm-12 col-md-11 col-lg-10 col-xl-10 p-1" style="max-width: 1100px" ng-if="!onRequest">
+            <h4 class="m-0 pb-1">Usuários</h4>
+
+            <div class="col-xs-12 p-0">
+                <button class="btn btn-primary" ng-click="ctrl.goManutencao()">
+                    <i class="material-icons">add</i> Cadastrar novo&nbsp;&nbsp;
+                </button>
+            </div>
+
+            <div class="col-xs-12 p-0 pt-1">
+                <table ng-if="!onRequest" class="table table-responsive" ng-style="{'max-width': (widthBody-30)+'px'}">
+                    <!--Table Cabeçalho-->
+                    <thead>
+                        <tr>
+                            <th width="50%" ng-click="ctrl.ordenar('nome')">
+                                Nome
+                                <span>
+                                    <i class="material-icons md-18 gray-darker pos-absolute" style="top: 13px; height: 0" ng-if="ordenacao.coluna != 'nome'">arrow_drop_up</i>
+                                    <i class="material-icons md-18 gray-darker pos-absolute" style="top: 19px; height: 0" ng-if="ordenacao.coluna != 'nome'">arrow_drop_down</i>
+                                    <i class="material-icons md-18" ng-class="{'text-white': ordenacao.coluna != 'nome'}">{{ ordenacao.asc ? 'arrow_drop_up' : 'arrow_drop_down' }}</i>
+                                </span>
+                            </th>
+                            <th width="50%" ng-click="ctrl.ordenar('login')">
+                                Usuário
+                                <span>
+                                    <i class="material-icons md-18 gray-darker pos-absolute" style="top: 13px; height: 0" ng-if="ordenacao.coluna != 'login'">arrow_drop_up</i>
+                                    <i class="material-icons md-18 gray-darker pos-absolute" style="top: 19px; height: 0" ng-if="ordenacao.coluna != 'login'">arrow_drop_down</i>
+                                    <i class="material-icons md-18" ng-class="{'text-white': ordenacao.coluna != 'login'}">{{ ordenacao.asc ? 'arrow_drop_up' : 'arrow_drop_down' }}</i>
+                                </span>
+                            </th>
+                            <th ng-click="ctrl.ordenar('perfilId')" ng-if="!minMobile">
+                                Perfil
+                                <span>
+                                    <i class="material-icons md-18 gray-darker pos-absolute" style="top: 13px; height: 0" ng-if="ordenacao.coluna != 'perfilId'">arrow_drop_up</i>
+                                    <i class="material-icons md-18 gray-darker pos-absolute" style="top: 19px; height: 0" ng-if="ordenacao.coluna != 'perfilId'">arrow_drop_down</i>
+                                    <i class="material-icons md-18" ng-class="{'text-white': ordenacao.coluna != 'perfilId'}">{{ ordenacao.asc ? 'arrow_drop_up' : 'arrow_drop_down' }}</i>
+                                </span>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            </th>
+                            <th ng-click="ctrl.ordenar('ativo')" ng-if="!minMobile">
+                                Status
+                                <span>
+                                    <i class="material-icons md-18 gray-darker pos-absolute" style="top: 13px; height: 0" ng-if="ordenacao.coluna != 'ativo'">arrow_drop_up</i>
+                                    <i class="material-icons md-18 gray-darker pos-absolute" style="top: 19px; height: 0" ng-if="ordenacao.coluna != 'ativo'">arrow_drop_down</i>
+                                    <i class="material-icons md-18" ng-class="{'text-white': ordenacao.coluna != 'ativo'}">{{ ordenacao.asc ? 'arrow_drop_up' : 'arrow_drop_down' }}</i>
+                                </span>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody ng-if="ctrl.usuarios.length > 0">
+                        <!--Table Filtro-->
+                        <tr rowspan="2" class="tableFilters">
+                            <td width="50%">
+                                <div class="form-group m-0">
+                                    <input type="text" class="form-control" maxlength="100" ng-model="filtro.nome" />
+                                </div>
+                            </td>
+                            <td width="50%">
+                                <div class="form-group m-0">
+                                    <input type="text" class="form-control" maxlength="20" ng-model="filtro.login" />
+                                </div>
+                            </td>
+                            <td ng-if="!minMobile">
+                                <div class="form-group m-0">
+                                    <select class="form-control pr-0" ng-model="filtro.perfilId" ng-options="p.id as p.descricao for p in perfis">
+                                    </select>
+                                </div>
+                            </td>
+                            <td ng-if="!minMobile">
+                                <div class="form-group m-0">
+                                    <select class="form-control pr-0" ng-model="filtro.ativo">
+                                        <option ng-value="undefined"> </option>
+                                        <option ng-value="true">Ativo</option>
+                                        <option ng-value="false">Inativo</option>
+                                    </select>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr style="height: 10px;"></tr>
+
+                        <!--Table Conteúdo-->
+                        <tr ng-repeat="u in ctrl.usuarios | filter:filtro:semAcentos" class="table-content">
+                            <td class="ellipsed" width="50%" ng-click="ctrl.goManutencao(u.id)" title="{{u.nome}}">
+                                {{u.nome}}
+                            </td>
+                            <td width="50%" ng-click="ctrl.goManutencao(u.id)" title="{{u.login}}">
+                                {{u.login}}
+                            </td>
+                            <td ng-click="ctrl.goManutencao(u.id)" ng-if="!minMobile" title="{{u.perfilId|perfil}}">
+                                {{u.perfilId|perfil}}
+                            </td>
+                            <td ng-click="ctrl.goManutencao(u.id)" ng-if="!minMobile" colspan="2" title="{{u.ativo ? 'Ativo' : 'Inativo'}}">
+                                {{u.ativo ? 'Ativo' : 'Inativo'}}
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,16 @@
+<div ng-style="css" class="{{class}}" ng-class="ngClass">
+    <div style="display: table-cell; vertical-align: middle">
+        <div ng-if="!disabled" style="{{'display: table;' + (getCenter() ? 'margin: auto' : '')}}" ng-click="ctrl.toggleCheck()">
+            <i class="material-icons primary" ng-class="{'md-24': !getSmall(), 'md-18': getSmall()}" style="transition-duration: .3s">
+                {{checked ? 'check_box' : 'check_box_outline_blank'}}
+            </i>
+            &nbsp;<label style="{{'cursor: pointer; font-size: ' + ((getSmall()) ? '12px' : '14px')}}" ng-transclude></label>
+        </div>
+        <div ng-if="disabled" style="{{'cursor: not-allowed; display: table;' + (getCenter() ? 'margin: auto' : '')}}">
+            <i class="material-icons" ng-class="{'md-24': !getSmall(), 'md-18': getSmall()}" style="transition-duration: .3s; color: #999">
+                {{checked ? 'check_box' : 'check_box_outline_blank'}}
+            </i>
+            &nbsp;<label style="{{'font-size: ' + ((getSmall()) ? '12px' : '14px')}}" ng-transclude></label>
+        </div>
+    </div>
+</div>

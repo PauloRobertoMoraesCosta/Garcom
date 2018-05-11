@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+<html ng-app="mainApp">
+    <head>
+        <title>Garçom</title>
+        <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+	    <meta charset="utf-8" />
+        <link href="lib/css/animate.min.css" rel="stylesheet" rel="stylesheet" />
+        <link href="src/css/style.min.css" rel="stylesheet" media="screen" />
+    </head>
+    <body>
+        <toast></toast>
+        <splash-screen show="showSplash"></splash-screen>
+        <div ui-view></div>
+
+        <!--LIBs-->
+        <script src="lib/js/jquery-3.1.1.min.js"></script>
+        <script src="lib/js/bootstrap.min.js"></script>
+        <script src="lib/js/angular.min.js"></script>
+        <script src="lib/js/angular-locale_pt-br.js"></script>
+        <script src="lib/js/ui-bootstrap-tpls.min.js" type="text/javascript"></script>
+        <script src="lib/js/angular-ui-router.min.js"></script>
+        <script src="lib/js/ct-ui-router-extras.min.js"></script>
+        <script src="lib/js/angular-sanitize.min.js"></script>
+        <script src="lib/js/angular-animate.min.js"></script>
+        <script src="lib/js/angular-messages.min.js"></script>
+        <script src="lib/js/angular-cookies.min.js"></script>
+        <script src="lib/js/ngToast.min.js"></script>
+        <script src="lib/js/ocLazyLoad.min.js"></script>
+        <script src="lib/js/angular-input-masks-standalone.min.js"></script>
+
+        <!--CONFIG-->
+        <script src="src/modulos/main/main.js"></script>
+        <script src="src/modulos/main/config/lazyload.js"></script>
+        <script src="src/modulos/main/config/provide.js"></script>
+        <script src="src/modulos/main/config/route.js"></script>
+        <script src="src/modulos/main/config/constants.js"></script>
+
+        <!--init DIRECTIVE -->
+        <script src="src/modulos/main/diretivas/splash-screen/splash-screen.js"></script>
+
+        <!--SERVICES-->
+        <script src="src/modulos/main/services/session.js"></script>
+        <script src="src/modulos/main/services/httpService.js"></script>
+        <script src="src/modulos/main/services/langService.js"></script>
+        <script src="src/modulos/main/services/msgService.js"></script>
+
+        <script type="text/ng-template" id="error-messages">
+            <span ng-message="required" class="helper danger">O campo é obrigatório</span>
+            <span ng-message="length" class="helper danger">O campo deve conter {{length}} caracteres</span>
+            <span ng-message="minlength" class="helper danger">Quantidade de caracteres insuficiente</span>
+            <span ng-message="maxlength" class="helper danger">Comprimento máximo não respeitado</span>
+            <span ng-message="max" class="helper danger">Comprimento máximo não respeitado</span>
+            <span ng-message="email" class="helper danger">E-mail inválido</span>
+            <span ng-message="number" class="helper danger">Número inválido</span>
+            <span ng-message="date" class="helper danger">Data inválida</span>
+            <span ng-message="dateGreater" class="helper danger">Data maior que atual</span>
+            <span ng-message="cpf" class="helper danger">CPF inválido</span>
+            <span ng-message="email" class="helper danger">E-Mail inválido</span>
+            <span ng-message="cns" class="helper danger">CNS inválido</span>
+            <span ng-message="cep" class="helper danger">CEP inválido</span>
+            <span ng-message="cnpj" class="helper danger">CNPJ inválido</span>
+            <span ng-message="apiError" class="helper danger" ng-bind-html-compile="apiError"></span>
+            <span ng-message="consultorio" class="helper danger">Informe o nome da sua clínica<br>Os dados de seus pacientes já estão agrupados em Consultório.</span>
+            <span ng-message="maxSize" class="helper danger">Tamanho excedido ({{f.$errorParam}})</span>
+            <span ng-message="pattern" class="helper danger">Extensão inválida</span>
+        </script>
+    </body>
+</html>

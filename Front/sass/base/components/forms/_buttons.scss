@@ -1,0 +1,87 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the button.
+// -----------------------------------------------------------------------------
+
+.btn {
+    height: $input-height;
+    color: $brand-primary;
+    background-color: #FAFAFA;
+    border: 1px #DDD solid;
+
+    &.btn-{
+        transition-duration: .3s;
+
+        &primary {
+            background-color: $btn-primary-bg;
+            border-color: $btn-primary-border;
+            color: #FFF;
+        }
+
+        &secondary {
+            @include hover {
+                background-color: darken($btn-secondary-bg, 5%);
+                border-color: darken($btn-secondary-border, 5%);
+                color: darken($brand-primary, 5%);
+            }
+
+            &:focus {
+                background-color: $btn-secondary-bg;
+                border-color: $btn-secondary-border;
+                color: $brand-primary;
+            }
+
+            &.active {
+                background-color: $gray-light;
+                border-color: $btn-secondary-border;
+                color: $brand-secondary;
+            }
+        }
+        &none {
+            color: $brand-primary;
+            background: transparent;
+            border: none;
+
+            @include hover {
+                background-color: #F0F0F0;
+            }
+        }
+
+        &circle {
+            border-radius: 50%;
+            padding: 14px 12px;
+
+            -webkit-box-shadow: 0px 0px 8px 1px rgba(0,0,0,0.3);
+            -moz-box-shadow: 0px 0px 8px 1px rgba(0,0,0,0.3);
+            box-shadow: 0px 0px 8px 1px rgba(0,0,0,0.3);
+        }
+
+        &spinner {
+            position: relative;
+            top: 4px;
+
+            .preloader-wrapper.big.active {
+                height: 24px;
+                width: 24px;
+            }
+
+            .spinner-layer {
+                border-color:#fff;
+            }
+        }
+
+        &link {
+            @include hover-focus {
+                color: inherit;
+                font-weight: bold;
+                text-decoration: none;
+            }
+        }
+    }
+
+    &.btn-armazenamento-upgrade{
+        float: left;
+        margin-top: 15px;
+        margin-right: -1px;
+        margin-left: -1px;
+    }
+}

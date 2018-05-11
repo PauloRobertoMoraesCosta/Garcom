@@ -1,0 +1,28 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the tags component.
+// -----------------------------------------------------------------------------
+
+.tag {
+    &.tag- {
+        &secondary {
+            @include tag-variant($brand-secondary);
+        }
+        
+        &float-action {
+            font-size: 80%;
+            padding: .8rem;
+            position: fixed;
+            z-index: $zindex-navbar-fixed;
+            
+            @include media-breakpoint-up(lg) {
+                border-radius: .05rem !important;
+                bottom: 0;
+            }
+        }
+        
+        &bottom- {
+            &left { bottom: 1rem; left: 1rem; }
+            &right { bottom: 1rem; right: 1rem; }
+        }
+    }
+}

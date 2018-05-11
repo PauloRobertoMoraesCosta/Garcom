@@ -1,0 +1,13 @@
+{
+  "name": "bower",
+  "version": "0.0.0",
+  "authors": [
+    "Eric Andrade <ericferreira1992@gmail.com>"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "material-design-icons": "^3.0.1",
+    "bootstrap": "4.0.0-alpha.5",
+    "materialize": "^0.97.8"
+  }
+}

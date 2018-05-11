@@ -1,0 +1,57 @@
+* Colocar um espaçamento superior (margin ou padding) no primeiro item da listagem de itens
+* Colocar em todas as colunas, duas setas (para cima e para baixo) e na coluna que estiver ordenando, colocamos apenas uma de acordo com a ordenação
+* Colocar ... (reticências) nos campos da tabela quando os campos forem muito grandes.
+* As pesquisas da tabela de itens cadastrados devem ignorar acentuação.
+* Ao clicar em algum campo que não seja o "nome" nas rotinas [Grupo de produto | Mesa | Tamanho do produto | Produto] o sistema direciona para a tela de cadastro/alterar sem preencher os campos.
+* Quando excluímos algum grupo de produto ou tamanho que está vinculado com algum outro cadastro pedindo para "Desvincular" e tentamos alterar o item desvinculado, o sistema não está exigindo o campo desvinculado como obrigatório. (Analisar com o back)
+* Quando excluimos um produto e tentamos cadastrar um novo com o mesmo nome, o sistema retorna que o produto já está cadastrado. O sistema deveria realmente excluir o produto ou então "Reativar" o produto que havia sido excluido. (Analisar com o back)
+
+Menu lateral:
+
+* o menu deve iniciar recolhido
+* Retirar as bordas dos menus.
+
+* No mobile, após clicar em um botão, o sistema mantem a estilização do :hover 
+
+Ingredientes
+
+* Ao alterar um ingrediente, o sistema está acusando nome duplicado, mesmo se eu não alterar o nome. (Analisar com o back)
+
+* Ao inativar um ingrediente que está vinculado a algum produto, o sistema não está apresentando a mensagem de alerta. (Corrigir primeiro o problema do alterar)
+
+----------------------------------
+Tamanho - cadastro/alteração
+* O campo ordem está aceitando letras.
+* Corrigir mensagem ao colocar tamanhos com mesma ordem. "A ordenação X já está sendo utilizada no grupo Y para o tamanho Z.
+Se continuar, o tamanho anterior ficará sem ordenação."
+* Não foi possível testar a inativação de um tamanho vinculado a um produto.
+
+-------------------------------------------------
+
+* Ao alterar qualquer tipo de registro (ingrediente, produto, tamanho...), o sistema deve desconsiderar o id do registro a ser alterado quando for verificar se existe algum registro com aquele nome.
+
+------------------------------------
+Produto
+* Não está apresentando o código rápido na tabela de listagem. (Back)
+
+* Ao ordenar, o grid está "Dançando"
+
+Produto cadastrar/alterar
+
+* Limitar a seleção de imagens à jpge e png
+
+* Não foi apresentada a mensagem de ajuda ao passar o mouse no "código rápido": "Código usado para agilizar o pedido desse produto."
+
+* A mensagem para informar o valor do produto está cortada: "Informação obrigatória"
+
+* Tratar tela no mobile
+
+* Não foi colocado o checkbox "Preparado na cozinha". Obs.: manter o ativo
+
+* O sistema está apresentando ingredientes inativos no cadastro de produto (Back)
+
+Definir valores do adicional
+
+* Não está sendo apresentada a mensagem: "Os tamanhos sem valor não terão opção de adicional."
+
+
